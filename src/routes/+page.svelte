@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import DotGrid from '$lib/DotGrid.svelte';
 
 	let loaded = false;
 	onMount(() => {
@@ -8,7 +9,8 @@
 	});
 </script>
 
-<div class="h-dvh w-screen bg-gradient-to-b from-slate-950 to-gray-950 text-sky-400">
+<div class="relative h-dvh w-full ">
+	<DotGrid />
 	<div class="relative flex justify-center overflow-x-clip">
 		<!-- Background Glow Gradient -->
 		<div
