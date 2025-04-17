@@ -24,5 +24,5 @@ void main()
     float dist = length(grid - 0.5);
     float dot_col = step(dist, dot_radius * scale);
     
-    gl_FragColor = vec4(dot_col * 0.2);
+    gl_FragColor = vec4(dot_col * 0.1);
 }
