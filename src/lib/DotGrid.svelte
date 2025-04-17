@@ -3,8 +3,16 @@
 	import { onMount } from 'svelte';
 	import frag from '../shaders/dot_grid.glsl';
 	let canvas: HTMLCanvasElement;
+    let mouseX = 0;
+    let mouseY = 0;
+
 
 	onMount(() => {
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            console.log(mouseX, mouseY);
+        })
         console.log('dpr ' + window.devicePixelRatio);
 		const regl = createRegl({});
 		const drawDots = regl({
@@ -17,9 +25,8 @@
             }`,
 
 			uniforms: {
-				// color: [0.0118, 0.0275, 0.0706, 1],
-				resolution: [canvas.width, canvas.height],
-				mouse: [20, 20]
+				resolution: () => [window.innerWidth, window.innerHeight],
+				mouse: () => [mouseX * 2, (window.innerHeight - mouseY) * 2]
 			},
 			attributes: {
 				position: [

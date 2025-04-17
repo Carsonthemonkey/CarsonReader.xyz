@@ -1,5 +1,5 @@
-#define scale 2.0
-#define dot_radius 0.02
+#define scale 10.0
+#define dot_radius 0.007
 precision mediump float;
 uniform vec2 resolution;
 uniform vec2 mouse;
@@ -17,7 +17,7 @@ void main()
     float mouse_area = smoothstep(0.5, 0.1, mouse_dist);
     
 
-    vec2 displacement = mouse_vec * mouse_area * 3.0;
+    vec2 displacement = mouse_vec * mouse_area * 2.0;
     vec2 grid = fract(uv * scale + displacement);
     //grid += displacement;
     float dist = length(grid - 0.5);
