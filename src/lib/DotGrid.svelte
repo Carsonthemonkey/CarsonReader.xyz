@@ -26,7 +26,7 @@
 
 			uniforms: {
 				resolution: () => [window.innerWidth, window.innerHeight],
-				mouse: () => [mouseX * 2, (window.innerHeight - mouseY) * 2]
+				mouse: () => [mouseX * 2, (window.innerHeight - mouseY) * 2],
 			},
 			attributes: {
 				position: [
@@ -46,5 +46,3 @@
 		});
 	});
 </script>
-
-<canvas bind:this={canvas} class="absolute inset-0 -z-10 h-full max-w-full"></canvas>

@@ -1,8 +1,9 @@
 #define scale 10.0
-#define dot_radius 0.007
+#define dot_radius 0.005
 precision mediump float;
 uniform vec2 resolution;
 uniform vec2 mouse;
+
 void main()
 {
     // Normalized pixel coordinates (from 0 to 1)
@@ -23,7 +24,5 @@ void main()
     float dist = length(grid - 0.5);
     float dot_col = step(dist, dot_radius * scale);
     
-    gl_FragColor = vec4(vec3(dot_col), 1.0);
-    // gl_FragColor = vec4(1.0, 0.0, 1.0, 1.0);
-    // gl_FragColor = vec4(grid, 0.0, 1.0);
+    gl_FragColor = vec4(dot_col * 0.2);
 }
