@@ -1,17 +1,14 @@
 <script lang="ts">
 	import createRegl from 'regl';
 	import { onMount } from 'svelte';
+	import frag from '../shaders/dot_grid.glsl';
 	let canvas: HTMLCanvasElement;
 
 	onMount(() => {
-		const regl = createRegl({ canvas });
+        console.log('dpr ' + window.devicePixelRatio);
+		const regl = createRegl({});
 		const drawDots = regl({
-			frag: `
-            precision mediump float;
-            uniform vec4 color;
-            void main() {
-                gl_FragColor = color;
-            }`,
+			frag,
 			vert: `
             precision mediump float;
             attribute vec2 position;
@@ -20,7 +17,9 @@
             }`,
 
 			uniforms: {
-				color: [0.0118, 0.0275, 0.0706, 1]
+				// color: [0.0118, 0.0275, 0.0706, 1],
+				resolution: [canvas.width, canvas.height],
+				mouse: [20, 20]
 			},
 			attributes: {
 				position: [
