@@ -17,14 +17,14 @@
 </script>
 
 {#if loaded}
-<div class="flex justify-center text-5xl m-5 gap-10">
+<div class="flex justify-center text-5xl transition-all m-5 gap-10">
     <a href="https://www.github.com/Carsonthemonkey">
         <IconGithub />
     </a>
-    <a href="">
+    <a href="mailto:carson.a.reader@gmail.com">
         <IconEmail />
     </a>
-    <a href="">
+    <a href="https://www.linkedin.com/in/carson-reader-7a1554266">
         <IconLinkedIn class="linkedin-icon"/>
     </a>
 </div>
