@@ -8,6 +8,7 @@
 	let loaded = $state(false);
 
 	onMount(() => {
+		// loaded = true;
 		setTimeout(() => {
 			loaded = true;
 		}, delay * 1000);
@@ -17,13 +18,19 @@
 {#if loaded}
 	<div class="m-5 flex justify-center gap-10 text-5xl transition-all">
 		<a href="https://www.github.com/Carsonthemonkey">
-			<IconGithub />
+			<IconGithub
+				class="drop-shadow-2xl/0 transition-all hover:-translate-y-1 hover:drop-shadow-2xl/60 hover:drop-shadow-blue-600"
+			/>
 		</a>
 		<a href="mailto:carson.a.reader@gmail.com">
-			<IconEmail />
+			<IconEmail
+				class="drop-shadow-2xl/0 transition-all hover:-translate-y-1 hover:drop-shadow-2xl/60 hover:drop-shadow-blue-600"
+			/>
 		</a>
 		<a href="https://www.linkedin.com/in/carson-reader-7a1554266">
-			<IconLinkedIn class="linkedin-icon" />
+			<IconLinkedIn
+				class="drop-shadow-2xl/0 transition-all hover:-translate-y-1 hover:drop-shadow-2xl/60 hover:drop-shadow-blue-600"
+			/>
 		</a>
 	</div>
 {/if}
