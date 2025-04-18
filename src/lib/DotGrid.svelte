@@ -12,7 +12,6 @@
 		window.addEventListener('mousemove', (e) => {
 			mouseX = e.clientX;
 			mouseY = e.clientY;
-			console.log(mouseX, mouseY);
 		});
 		const regl = createRegl({});
 		const animatedUniforms = {
