@@ -2,6 +2,8 @@
 	import createRegl from 'regl';
 	import { onMount } from 'svelte';
 	import frag from '../shaders/dot_grid.glsl';
+	import gsap from 'gsap';
+
 	let canvas: HTMLCanvasElement;
 	let mouseX = 0;
 	let mouseY = 0;
@@ -13,6 +15,14 @@
 			console.log(mouseX, mouseY);
 		});
 		const regl = createRegl({});
+		const animatedUniforms = {
+			wipeAmount: 0.0
+		};
+		gsap.to(animatedUniforms, {
+			duration: 2.0,
+			delay: 1.2,
+			wipeAmount: 1.0
+		});
 		const drawDots = regl({
 			frag,
 			vert: `
@@ -30,7 +40,7 @@
 					mouseX / window.innerWidth,
 					(window.innerHeight - mouseY) / window.innerHeight
 				],
-				wipeAmount: 1.0
+				wipeAmount: () => animatedUniforms.wipeAmount
 			},
 			attributes: {
 				position: [
