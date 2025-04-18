@@ -8,7 +8,6 @@
 	let loaded = $state(false);
 
 	onMount(() => {
-		// loaded = true;
 		setTimeout(() => {
 			loaded = true;
 		}, delay * 1000);
