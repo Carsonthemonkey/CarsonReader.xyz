@@ -36,6 +36,6 @@
 		>
 			A Passionate Developer working on cool things
 		</h2>
-		<ContactIcons />
+		<ContactIcons delay={1.5}/>
 	</div>
 </div>
