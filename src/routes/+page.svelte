@@ -13,7 +13,7 @@
 <div class="h-dvh bg-gradient-to-b from-slate-950 to-gray-950">
 	<div class="z-10 relative h-dvh w-full overflow-x-hidden">
 		<!-- Backdrop for the Header, to cover the dots -->
-		<div class="-z-10 h-[500px] -translate-y-24 rounded-full w-full scale-x-125 blur-2xl absolute bg-slate-950"></div>
+		<div class="-z-10 h-[500px] -translate-y-24 rounded-full w-full scale-x-105 blur-2xl absolute bg-slate-950"></div>
 		<div class="relative flex justify-center overflow-x-clip">
 			<!-- Background Glow Gradient -->
 			<div
