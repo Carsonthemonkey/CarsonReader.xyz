@@ -1,8 +1,4 @@
 <script lang="ts">
-	// import IconGithub from '~icons/mdi/github'
-	// import IconLinkedIn from '~icons/mdi/linkedin';
-	// import IconEmail from '~icons/mdi/email';
-
 	import IconGithub from '~icons/line-md/github';
 	import IconLinkedIn from '~icons/line-md/linkedin';
 	import IconEmail from '~icons/line-md/email';
