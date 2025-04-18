@@ -30,7 +30,7 @@
 					mouseX / window.innerWidth,
 					(window.innerHeight - mouseY) / window.innerHeight
 				],
-				wipe_amount: 1.0
+				wipeAmount: 1.0
 			},
 			attributes: {
 				position: [
