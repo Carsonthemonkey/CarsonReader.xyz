@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
 	import DotGrid from '$lib/DotGrid.svelte';
+	import ContactIcons from '$lib/ContactIcons.svelte';
 
 	let loaded = false;
 	onMount(() => {
@@ -10,7 +11,7 @@
 </script>
 
 <DotGrid />
-<div class="h-dvh bg-gradient-to-b from-slate-950 to-gray-950">
+<div class="h-dvh bg-gradient-to-b from-slate-950 to-gray-950 text-sky-400">
 	<div class="z-10 relative h-dvh w-full overflow-x-hidden">
 		<!-- Backdrop for the Header, to cover the dots -->
 		<div class="-z-10 h-[500px] -translate-y-24 rounded-full w-full scale-x-105 blur-2xl absolute bg-slate-950"></div>
@@ -35,5 +36,6 @@
 		>
 			A Passionate Developer working on cool things
 		</h2>
+		<ContactIcons />
 	</div>
 </div>
