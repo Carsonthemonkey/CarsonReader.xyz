@@ -9,16 +9,23 @@
 	let windowGrabbed = false;
 	let handleWindowDrag: (e: MouseEvent) => void;
 
+	function elasticDrag(val: number, r: number) {
+		return (r * val) / (r + Math.abs(val));
+	}
+
 	onMount(() => {
 		const setX = gsap.quickSetter(dragWindow, 'x', 'px');
 		const setY = gsap.quickSetter(dragWindow, 'y', 'px');
 		handleWindowDrag = (e) => {
 			if (!windowGrabbed) return;
-			setX(e.clientX - dragStartPos[0]);
-			setY(e.clientY - dragStartPos[1]);
+			setX(elasticDrag(e.clientX - dragStartPos[0], 300));
+			setY(elasticDrag(e.clientY - dragStartPos[1], 300));
 		};
-        window.addEventListener('pointermove', handleWindowDrag)
-        window.addEventListener('pointerup', () => windowGrabbed = false);
+		window.addEventListener('pointermove', handleWindowDrag);
+		window.addEventListener('pointerup', () => {
+			windowGrabbed = false;
+			setX(0), setY(0);
+		});
 	});
 </script>
 
@@ -27,7 +34,7 @@
 		bind:this={dragHandle}
 		on:pointerdown={(e) => {
 			windowGrabbed = true;
-            dragStartPos = [e.clientX, e.clientY];
+			dragStartPos = [e.clientX, e.clientY];
 		}}
 		class:cursor-grabbing={windowGrabbed}
 		class="text h-10 w-full cursor-grab content-center rounded-t-2xl bg-sky-300 outline outline-sky-300"
