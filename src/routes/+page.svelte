@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import DotGrid from '$lib/DotGrid.svelte';
 	import ContactIcons from '$lib/ContactIcons.svelte';
+	import AboutMe from '$lib/AboutMe.svelte';
 
 	let loaded = false;
 	onMount(() => {
@@ -36,5 +37,6 @@
 			A Passionate Developer working on cool things
 		</h2>
 		<ContactIcons delay={1.5}/>
+		<AboutMe />
 	</div>
 </div>
