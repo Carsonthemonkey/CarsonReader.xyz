@@ -48,7 +48,7 @@
 
 <div
 	bind:this={dragWindow}
-	class="min-mx mx-6 flex min-h-screen max-w-2xl flex-col justify-center sm:mx-auto"
+	class="min-mx mx-6 flex max-w-2xl flex-col justify-center sm:mx-auto scale-y-100"
 >
 	<div
 		class:scale-[1.03]={windowGrabbed && !clientInfo.isTouchscreen}
