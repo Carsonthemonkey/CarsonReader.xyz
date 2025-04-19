@@ -45,7 +45,7 @@
 
 <div
 	bind:this={dragWindow}
-	class="mx-auto flex min-h-screen w-2xl flex-col justify-center"
+	class="mx-6 sm:mx-auto min-mx flex min-h-screen max-w-2xl flex-col justify-center"
 >
 	<div class:scale-[1.03]={windowGrabbed} class="transition-transform">
         <div
@@ -69,7 +69,7 @@
         >
             <h2 class="text-4xl text-yellow-200 italic">About Me</h2>
             <hr />
-            <p class="text-2xl text-sky-300">
+            <p class="text-lg sm:text-2xl text-sky-300">
                 This is a section about me. It has interesting things in it. Or at least it will. Right
                 now it is just here to take up some space. Hope this looks cool. Maybe it won't. Who
                 knows.
