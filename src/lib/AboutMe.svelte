@@ -24,6 +24,7 @@
 		const setY = gsap.quickSetter(dragWindow, 'y', 'px');
 		handleWindowDrag = (e) => {
 			if (!windowGrabbed) return;
+			e.preventDefault();
 			windowPos = [
 				elasticDrag(e.clientX - dragStartPos[0], 500),
 				elasticDrag(e.clientY - dragStartPos[1], 500)
@@ -58,6 +59,7 @@
 			bind:this={dragHandle}
 			on:pointerdown={(e) => {
 				windowGrabbed = true;
+				e.preventDefault();
 				gsap.killTweensOf(dragWindow);
 				dragStartPos = [e.clientX, e.clientY];
 			}}
