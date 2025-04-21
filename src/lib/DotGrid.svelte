@@ -9,7 +9,11 @@
 	let mouseY = 0;
 	let scrollAmount = 0;
 	let dpr: number;
-	const parallaxScale = 0.2
+	const parallaxScale = 0.2;
+	const GSAP_ELASTIC_EASE = 'elastic.out(1.2, 0.2)';
+
+
+	let pokeDots: () => void;
 
 	let canvasWidth: number;
 	let canvasHeight: number;
@@ -21,8 +25,25 @@
 		});
 		const regl = createRegl({ canvas, pixelRatio: dpr });
 		const animatedUniforms = {
-			wipeAmount: 0.0
+			displacementScale: 2.0,
+			wipeAmount: 0.0,
 		};
+		window.addEventListener('pointerdown', () => {
+			gsap.killTweensOf(animatedUniforms, {props: ["displacementScale"]});
+			gsap.to(animatedUniforms, {
+				duration: 1.4,
+				displacementScale: -1.4,
+				ease: GSAP_ELASTIC_EASE
+			});
+		});
+		window.addEventListener('pointerup', () => {
+			gsap.killTweensOf(animatedUniforms, {props: ["displacementScale"]});
+			gsap.to(animatedUniforms, {
+				duration: 1.7,
+				displacementScale: 2.0,
+				ease: GSAP_ELASTIC_EASE
+			});
+		})
 		gsap.to(animatedUniforms, {
 			duration: 2.0,
 			delay: 1.2,
@@ -46,7 +67,8 @@
 					(window.innerHeight - mouseY) / window.innerHeight
 				],
 				dotColor: [0.4, 0.8, 1.0, 1.0],
-				gridOffsetY: () => ((scrollAmount / canvasHeight) * parallaxScale),
+				gridOffsetY: () => (scrollAmount / canvasHeight) * parallaxScale,
+				displacementScale: () => animatedUniforms.displacementScale,
 				wipeAmount: () => animatedUniforms.wipeAmount
 			},
 			attributes: {

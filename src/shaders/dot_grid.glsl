@@ -7,6 +7,7 @@ uniform vec2 mouse;
 uniform float wipeAmount;
 uniform vec4 dotColor;
 uniform float gridOffsetY;
+uniform float displacementScale;
 
 void main() {
   vec2 resolution = vec2(width, height);
@@ -20,7 +21,7 @@ void main() {
   float mouseDist = length(mouseVec);
   float mouseArea = smoothstep(0.27, 0.1, mouseDist);
 
-  vec2 displacement = mouseVec * mouseArea * 2.0;
+  vec2 displacement = mouseVec * mouseArea * displacementScale;
   vec2 grid = fract(uvSquare * scale + displacement);
   // Find distance to dot center
   vec2 toDot = grid - 0.5;
