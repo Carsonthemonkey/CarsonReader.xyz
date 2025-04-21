@@ -95,7 +95,7 @@
 			>
 				<h2 class="text-4xl text-yellow-200">About Me</h2>
 				<hr />
-				<p class="text-lg text-sky-300 sm:text-2xl">
+				<p class="text-lg text-sky-300 sm:text-2xl font-electrolize">
 					This is a section about me. It has interesting things in it. Or at least it will.
 					Right now it is just here to take up some space. Hope this looks cool. Maybe it
 					won't. Who knows.
