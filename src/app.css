@@ -5,3 +5,6 @@
 	--default-font-family: 'Inter', sans-serif;
 	--font-electrolize: 'Electrolize', sans-serif;
 }
+html, body {
+	@apply bg-gray-950
+}
