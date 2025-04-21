@@ -45,6 +45,7 @@
 					mouseX / window.innerWidth,
 					(window.innerHeight - mouseY) / window.innerHeight
 				],
+				dotColor: [0.4, 0.8, 1.0, 1.0],
 				wipeAmount: () => animatedUniforms.wipeAmount
 			},
 			attributes: {

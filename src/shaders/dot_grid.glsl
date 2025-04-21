@@ -5,6 +5,7 @@ uniform float width;
 uniform float height;
 uniform vec2 mouse;
 uniform float wipeAmount;
+uniform vec4 dotColor;
 
 void main() {
   vec2 resolution = vec2(width, height);
@@ -29,6 +30,6 @@ void main() {
   dotScale = clamp(dotScale, 0.0, 1.0);
   float dotCol = step(dist, dotRadius * scale * dotScale);
 
-  gl_FragColor = vec4(vec3(dotScale), 1.0);
-  gl_FragColor = vec4(dotCol * 0.1);
+  // gl_FragColor = vec4(vec3(dotScale), 1.0) * dotColor;
+  gl_FragColor = vec4(dotCol) * dotColor * 0.1;
 }
