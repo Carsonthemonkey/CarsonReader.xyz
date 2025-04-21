@@ -11,8 +11,8 @@
 </script>
 
 <DotGrid />
-<div class="h-dvh bg-gradient-to-b from-slate-950 to-gray-950 text-sky-400">
-	<div class="relative z-10 h-dvh w-full overflow-x-hidden">
+<div class="min-h-screen bg-gradient-to-b from-slate-950 to-gray-950 text-sky-400">
+	<div class="relative z-10 w-full overflow-x-hidden">
 		<!-- Backdrop for the Header, to cover the dots -->
 		<div
 			class="absolute -z-10 h-[500px] w-full -translate-y-11 rounded-b-[200px] bg-slate-950 blur-2xl"
