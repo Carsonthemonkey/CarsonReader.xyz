@@ -1,19 +1,25 @@
 <script lang="ts">
 	import createRegl from 'regl';
 	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
 	import frag from '../shaders/dot_grid.glsl';
 	import gsap from 'gsap';
 
 	let canvas: HTMLCanvasElement;
 	let mouseX = 0;
 	let mouseY = 0;
+	// const dpr = browser ? window.devicePixelRatio || 1 : 1;
+	let dpr: number;
+
+	let canvasWidth: number;
+	let canvasHeight: number;
 
 	onMount(() => {
 		window.addEventListener('mousemove', (e) => {
 			mouseX = e.clientX;
 			mouseY = e.clientY;
 		});
-		const regl = createRegl({});
+		const regl = createRegl({ canvas, pixelRatio: dpr });
 		const animatedUniforms = {
 			wipeAmount: 0.0
 		};
@@ -59,3 +65,15 @@
 		});
 	});
 </script>
+
+<svelte:window
+	bind:innerWidth={canvasWidth}
+	bind:innerHeight={canvasHeight}
+	bind:devicePixelRatio={dpr}
+/>
+<canvas
+	bind:this={canvas}
+	class="fixed inset-0 z-0 h-full w-full"
+	width={canvasWidth * dpr}
+	height={canvasHeight * dpr}
+></canvas>
