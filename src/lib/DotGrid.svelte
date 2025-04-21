@@ -1,15 +1,15 @@
 <script lang="ts">
 	import createRegl from 'regl';
 	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
 	import frag from '../shaders/dot_grid.glsl';
 	import gsap from 'gsap';
 
 	let canvas: HTMLCanvasElement;
 	let mouseX = 0;
 	let mouseY = 0;
-	// const dpr = browser ? window.devicePixelRatio || 1 : 1;
+	let scrollAmount = 0;
 	let dpr: number;
+	const parallaxScale = 0.2
 
 	let canvasWidth: number;
 	let canvasHeight: number;
@@ -46,6 +46,7 @@
 					(window.innerHeight - mouseY) / window.innerHeight
 				],
 				dotColor: [0.4, 0.8, 1.0, 1.0],
+				gridOffsetY: () => ((scrollAmount / canvasHeight) * parallaxScale),
 				wipeAmount: () => animatedUniforms.wipeAmount
 			},
 			attributes: {
@@ -62,6 +63,7 @@
 		});
 		regl.frame(() => {
 			regl.clear({ color: [1.0, 0.0, 1.0, 1.0] });
+			scrollAmount = window.scrollY;
 			drawDots();
 		});
 	});

@@ -6,15 +6,16 @@ uniform float height;
 uniform vec2 mouse;
 uniform float wipeAmount;
 uniform vec4 dotColor;
+uniform float gridOffsetY;
 
 void main() {
   vec2 resolution = vec2(width, height);
   // Normalized pixel coordinates (from 0 to 1)
   float aspectRatio = resolution.x / resolution.y;
   vec2 uv = gl_FragCoord.xy / resolution.xy;
-  vec2 uvSquare = vec2(uv.x * aspectRatio, uv.y);
+  vec2 uvSquare = vec2(uv.x * aspectRatio, uv.y - gridOffsetY);
 
-  vec2 mouseLoc = vec2(mouse.x * aspectRatio, mouse.y);
+  vec2 mouseLoc = vec2(mouse.x * aspectRatio, mouse.y - gridOffsetY);
   vec2 mouseVec = mouseLoc - uvSquare;
   float mouseDist = length(mouseVec);
   float mouseArea = smoothstep(0.27, 0.1, mouseDist);
