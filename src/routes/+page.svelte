@@ -24,7 +24,7 @@
 					class="absolute m-10 h-full min-w-xl rounded-full bg-[radial-gradient(ellipse_at_center,_rgba(0,188,255,0.2)_0%,_transparent_70%)] blur-3xl"
 				></div>
 				<h1
-					class="max-w-2xl pt-24 text-center text-7xl font-bold text-sky-400 transition-all duration-[1500ms] ease-out md:text-8xl"
+					class="max-w-2xl pt-24 text-center text-7xl font-bold text-sky-400 motion-safe:transition-all motion-safe:duration-[1500ms] ease-out md:text-8xl"
 					class:blur-[50px]={!loaded}
 					class:opacity-0={!loaded}
 				>
@@ -33,7 +33,7 @@
 				</h1>
 			</div>
 			<h2
-				class="p-4 text-center text-xl text-sky-700 italic transition-all delay-1000 duration-1000 ease-out z-10 relative"
+				class="p-4 text-center text-xl text-sky-700 italic motion-safe:transition-all motion-safe:delay-1000 motion-safe:duration-1000 ease-out z-10 relative"
 				class:translate-y-4={!loaded}
 				class:opacity-0={!loaded}
 			>

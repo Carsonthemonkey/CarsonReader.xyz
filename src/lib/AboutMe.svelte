@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import clientInfo from './utils/clientInfo.svelte';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	import { prefersReducedMotion } from 'svelte/motion';
 
 	let dragWindow: HTMLDivElement;
 	let dragHandle: HTMLDivElement;
@@ -20,6 +21,7 @@
 	}
 
 	onMount(() => {
+		if(prefersReducedMotion.current) return;
 		gsap.registerPlugin(ScrollTrigger);
 		gsap.from(dragWindow, {
 			// scaleY: 0.0,
@@ -76,13 +78,14 @@
 			<div
 				bind:this={dragHandle}
 				on:pointerdown={(e) => {
+					if(prefersReducedMotion.current) return;
 					windowGrabbed = true;
 					e.preventDefault();
 					gsap.killTweensOf(dragWindow);
 					dragStartPos = [e.clientX, e.clientY];
 				}}
 				class:cursor-grabbing={windowGrabbed}
-				class="text h-10 w-full cursor-grab content-center rounded-t-2xl bg-sky-300 outline outline-sky-300"
+				class="text h-10 w-full motion-safe:cursor-grab content-center rounded-t-2xl bg-sky-300 outline outline-sky-300"
 			>
 				<div class="mx-3 flex w-30 gap-3">
 					<div class="h-5 w-5 rounded-full bg-slate-950"></div>

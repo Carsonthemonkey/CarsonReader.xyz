@@ -1,7 +1,7 @@
 import { onMount } from "svelte";
 import { browser } from "$app/environment";
 const clientInfo = $state({
-    isTouchscreen: false
+    isTouchscreen: false,
 });
 
 if(browser){

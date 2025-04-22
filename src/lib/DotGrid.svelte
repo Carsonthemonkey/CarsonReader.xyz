@@ -3,13 +3,14 @@
 	import { onMount } from 'svelte';
 	import frag from '../shaders/dot_grid.glsl';
 	import gsap from 'gsap';
+	import { prefersReducedMotion } from 'svelte/motion';
 
 	let canvas: HTMLCanvasElement;
 	let mouseX = 0;
 	let mouseY = 0;
 	let scrollAmount = 0;
 	let dpr: number;
-	const parallaxScale = 0.2;
+	let parallaxScale = 0.2;
 	const GSAP_ELASTIC_EASE = 'elastic.out(1.0, 0.4)';
 
 	let pokeDots: () => void;
@@ -24,6 +25,12 @@
 	};
 
 	onMount(() => {
+		if(prefersReducedMotion.current){
+			parallaxScale = 0;
+			animatedUniforms.wipeAmount = 1;
+			animatedUniforms.displacementScale = 0;
+		} 
+
 		window.addEventListener('mousemove', (e) => {
 			mouseX = e.clientX;
 			mouseY = e.clientY;
@@ -88,6 +95,7 @@
 	width={canvasWidth * dpr}
 	height={canvasHeight * dpr}
 	onpointerdown={() => {
+		if(prefersReducedMotion.current) return;
 		gsap.killTweensOf(animatedUniforms, { props: ['displacementScale'] });
 		gsap.to(animatedUniforms, {
 			duration: 1.4,
@@ -101,6 +109,7 @@
 		});
 	}}
 	onpointerup={() => {
+		if(prefersReducedMotion.current) return;
 		gsap.killTweensOf(animatedUniforms, { props: ['displacementScale'] });
 		gsap.to(animatedUniforms, {
 			duration: 1.7,
