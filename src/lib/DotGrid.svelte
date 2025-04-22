@@ -12,11 +12,16 @@
 	const parallaxScale = 0.2;
 	const GSAP_ELASTIC_EASE = 'elastic.out(1.0, 0.4)';
 
-
 	let pokeDots: () => void;
 
 	let canvasWidth: number;
 	let canvasHeight: number;
+
+	const animatedUniforms = {
+		displacementScale: 2.0,
+		wipeAmount: 0.0,
+		rippleRadius: 8.0
+	};
 
 	onMount(() => {
 		window.addEventListener('mousemove', (e) => {
@@ -24,32 +29,6 @@
 			mouseY = e.clientY;
 		});
 		const regl = createRegl({ canvas, pixelRatio: dpr });
-		const animatedUniforms = {
-			displacementScale: 2.0,
-			wipeAmount: 0.0,
-			rippleRadius: 8.0,
-		};
-		window.addEventListener('pointerdown', () => {
-			gsap.killTweensOf(animatedUniforms, {props: ["displacementScale"]});
-			gsap.to(animatedUniforms, {
-				duration: 1.4,
-				displacementScale: -1.4,
-				ease: GSAP_ELASTIC_EASE
-			});
-			animatedUniforms.rippleRadius = 8.0
-			gsap.from(animatedUniforms, {
-				rippleRadius: 0.0,
-				duration: 4.0
-			})
-		});
-		window.addEventListener('pointerup', () => {
-			gsap.killTweensOf(animatedUniforms, {props: ["displacementScale"]});
-			gsap.to(animatedUniforms, {
-				duration: 1.7,
-				displacementScale: 2.0,
-				ease: GSAP_ELASTIC_EASE
-			});
-		})
 		gsap.to(animatedUniforms, {
 			duration: 2.0,
 			delay: 1.2,
@@ -108,5 +87,25 @@
 	class="fixed inset-0 h-full w-full"
 	width={canvasWidth * dpr}
 	height={canvasHeight * dpr}
-	onclick={() => console.log('clicked')}
+	onpointerdown={() => {
+		gsap.killTweensOf(animatedUniforms, { props: ['displacementScale'] });
+		gsap.to(animatedUniforms, {
+			duration: 1.4,
+			displacementScale: -1.4,
+			ease: GSAP_ELASTIC_EASE
+		});
+		animatedUniforms.rippleRadius = 8.0;
+		gsap.from(animatedUniforms, {
+			rippleRadius: 0.0,
+			duration: 4.0
+		});
+	}}
+	onpointerup={() => {
+		gsap.killTweensOf(animatedUniforms, { props: ['displacementScale'] });
+		gsap.to(animatedUniforms, {
+			duration: 1.7,
+			displacementScale: 2.0,
+			ease: GSAP_ELASTIC_EASE
+		});
+	}}
 ></canvas>
