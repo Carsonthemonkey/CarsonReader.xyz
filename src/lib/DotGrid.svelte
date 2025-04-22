@@ -105,7 +105,7 @@
 />
 <canvas
 	bind:this={canvas}
-	class="fixed inset-0 z-0 h-full w-full"
+	class="fixed inset-0 h-full w-full"
 	width={canvasWidth * dpr}
 	height={canvasHeight * dpr}
 	onclick={() => console.log('clicked')}
