@@ -1,5 +1,8 @@
 #define scale 15.0
 #define dotRadius 0.0035
+
+#define rippleInnerRadius 0.01
+
 precision mediump float;
 uniform float width;
 uniform float height;
@@ -8,6 +11,7 @@ uniform float wipeAmount;
 uniform vec4 dotColor;
 uniform float gridOffsetY;
 uniform float displacementScale;
+uniform float rippleRadius;
 
 void main() {
   vec2 resolution = vec2(width, height);
@@ -21,6 +25,9 @@ void main() {
   float mouseDist = length(mouseVec);
   float mouseArea = smoothstep(0.27, 0.1, mouseDist);
 
+  float ripple = smoothstep(rippleRadius, 0.0, mouseDist) *
+                 (1.0 - smoothstep(rippleRadius - rippleInnerRadius, 0.0, mouseDist));
+
   vec2 displacement = mouseVec * mouseArea * displacementScale;
   vec2 grid = fract(uvSquare * scale + displacement);
   // Find distance to dot center
@@ -33,5 +40,6 @@ void main() {
   float dotCol = step(dist, dotRadius * scale * dotScale);
 
   // gl_FragColor = vec4(vec3(dotScale), 1.0) * dotColor;
-  gl_FragColor = vec4(dotCol) * dotColor * 0.1;
+  gl_FragColor = vec4(dotCol) * dotColor * clamp(ripple * 3.0, 0.1, 1.0);
+  // gl_FragColor = vec4(vec3(ripple * mouseArea), 1.0);
 }
