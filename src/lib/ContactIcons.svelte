@@ -16,17 +16,17 @@
 
 {#if loaded}
 	<div class="m-5 flex justify-center gap-10 text-5xl transition-all">
-		<a href="https://www.github.com/Carsonthemonkey">
+		<a href="https://www.github.com/Carsonthemonkey" aria-label="GitHub">
 			<IconGithub
 				class="transform-gpu drop-shadow-2xl/0 transition-all hover:-translate-y-1 hover:scale-110 hover:drop-shadow-2xl/60 hover:drop-shadow-blue-600"
 			/>
 		</a>
-		<a href="mailto:carson.a.reader@gmail.com">
+		<a href="mailto:carson.a.reader@gmail.com" aria-label="Email">
 			<IconEmail
 				class="transform-gpu drop-shadow-2xl/0 transition-all hover:-translate-y-1 hover:scale-110 hover:drop-shadow-2xl/60 hover:drop-shadow-blue-600"
 			/>
 		</a>
-		<a href="https://www.linkedin.com/in/carson-reader-7a1554266">
+		<a href="https://www.linkedin.com/in/carson-reader-7a1554266" aria-label="LinkedIn">
 			<IconLinkedIn
 				class="transform-gpu drop-shadow-2xl/0 transition-all hover:-translate-y-1 hover:scale-110 hover:drop-shadow-2xl/60 hover:drop-shadow-blue-600"
 			/>
