@@ -84,7 +84,7 @@
 					gsap.killTweensOf(dragWindow);
 					dragStartPos = [e.clientX, e.clientY];
 				}}
-				class:cursor-grabbing={windowGrabbed}
+				class:motion-safe:cursor-grabbing={windowGrabbed}
 				class="text h-10 w-full motion-safe:cursor-grab content-center rounded-t-2xl bg-sky-300 outline outline-sky-300"
 			>
 				<div class="mx-3 flex w-30 gap-3">
@@ -94,7 +94,7 @@
 				</div>
 			</div>
 			<div
-				class="flex flex-col gap-3 rounded-b-2xl bg-slate-950 bg-gradient-to-br p-10 shadow-2xl shadow-sky-400/20 outline"
+				class="flex flex-col gap-3 rounded-b-2xl bg-slate-950 bg-gradient-to-br p-10 shadow-2xl shadow-sky-400/20 outline outline-sky-300"
 			>
 				<h2 class="text-4xl text-yellow-200">About Me</h2>
 				<hr />
