@@ -26,8 +26,7 @@
 		gltfLoader.load('/models/suzanne.glb', (gltf) => {
 			monkey = gltf.scene;
 			scene.add(monkey);
-			((monkey.children[0] as THREE.Mesh).material as THREE.MeshStandardMaterial).wireframe =
-				true;
+			(monkey as any).children[0].material.wireframe = true;
 		});
 		camera.position.z = 10;
 		const resizeRendererToDisplaySize = () => {
