@@ -25,11 +25,11 @@
 	};
 
 	onMount(() => {
-		if(prefersReducedMotion.current){
+		if (prefersReducedMotion.current) {
 			parallaxScale = 0;
 			animatedUniforms.wipeAmount = 1;
 			animatedUniforms.displacementScale = 0;
-		} 
+		}
 
 		window.addEventListener('mousemove', (e) => {
 			mouseX = e.clientX;
@@ -89,13 +89,12 @@
 	bind:innerHeight={canvasHeight}
 	bind:devicePixelRatio={dpr}
 />
-<canvas
-	bind:this={canvas}
+<!-- Invisible Hitbox Div -->
+<!-- The canvas will not receive clicks if it is at a negative z value, so this div handles the interaction -->
+<div
 	class="fixed inset-0 h-full w-full"
-	width={canvasWidth * dpr}
-	height={canvasHeight * dpr}
 	onpointerdown={() => {
-		if(prefersReducedMotion.current) return;
+		if (prefersReducedMotion.current) return;
 		gsap.killTweensOf(animatedUniforms, { props: ['displacementScale'] });
 		gsap.to(animatedUniforms, {
 			duration: 1.4,
@@ -109,7 +108,7 @@
 		});
 	}}
 	onpointerup={() => {
-		if(prefersReducedMotion.current) return;
+		if (prefersReducedMotion.current) return;
 		gsap.killTweensOf(animatedUniforms, { props: ['displacementScale'] });
 		gsap.to(animatedUniforms, {
 			duration: 1.7,
@@ -117,4 +116,10 @@
 			ease: GSAP_ELASTIC_EASE
 		});
 	}}
+></div>
+<canvas
+	bind:this={canvas}
+	class="fixed inset-0 -z-10 h-full w-full bg-slate-950"
+	width={canvasWidth * dpr}
+	height={canvasHeight * dpr}
 ></canvas>
