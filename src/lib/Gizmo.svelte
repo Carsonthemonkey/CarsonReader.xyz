@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { render } from 'svelte/server';
 	import * as THREE from 'three';
-	import { ThreeMFLoader } from 'three/examples/jsm/Addons.js';
+	
 	let canvas: HTMLCanvasElement;
 
 	onMount(() => {
