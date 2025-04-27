@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import * as THREE from 'three';
-	
+	import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
 	let canvas: HTMLCanvasElement;
 
 	onMount(() => {
-		// return;
 		const scene = new THREE.Scene();
 		const camera = new THREE.PerspectiveCamera(
 			75,
@@ -15,12 +15,21 @@
 		);
 		const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
 		renderer.setSize(window.innerWidth, window.innerHeight, false);
+
 		// Test Geometry
-		const geometry = new THREE.BoxGeometry(1, 1, 1, 1);
-		const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-		const cube = new THREE.Mesh(geometry, material);
-		scene.add(cube);
-		camera.position.z = 5;
+		// const geometry = new THREE.BoxGeometry(1, 1, 1, 1);
+		// const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+		// const cube = new THREE.Mesh(geometry, material);
+		// scene.add(cube);
+		let monkey: THREE.Group<THREE.Object3DEventMap>;
+		const gltfLoader = new GLTFLoader();
+		gltfLoader.load('/models/suzanne.glb', (gltf) => {
+			monkey = gltf.scene;
+			scene.add(monkey);
+			((monkey.children[0] as THREE.Mesh).material as THREE.MeshStandardMaterial).wireframe =
+				true;
+		});
+		camera.position.z = 10;
 		const resizeRendererToDisplaySize = () => {
 			const width = canvas.clientWidth;
 			const height = canvas.clientHeight;
@@ -31,8 +40,10 @@
 			return shouldResize;
 		};
 		const animate = () => {
-			cube.rotation.x += 0.01;
-			cube.rotation.y += 0.01;
+			if (monkey) {
+				monkey.rotation.x += 0.01;
+				monkey.rotation.y += 0.01;
+			}
 			if (resizeRendererToDisplaySize()) {
 				camera.aspect = canvas.clientWidth / canvas.clientHeight;
 				camera.updateProjectionMatrix();
