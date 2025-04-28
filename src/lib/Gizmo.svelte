@@ -7,12 +7,24 @@
 
 	onMount(() => {
 		const scene = new THREE.Scene();
-		const camera = new THREE.PerspectiveCamera(
-			75,
-			window.innerWidth / window.innerHeight,
-			0.1,
+		// const camera = new THREE.PerspectiveCamera(
+		// 	75,
+		// 	window.innerWidth / window.innerHeight,
+		// 	0.1,
+		// 	1000
+		// );
+		const frustumSize = 10;
+		const aspect = window.innerWidth / window.innerHeight;
+		const camera = new THREE.OrthographicCamera(
+			(frustumSize * aspect) / -2, // left
+			(frustumSize * aspect) / 2, // right
+			frustumSize / 2, // top
+			frustumSize / -2, // bottom
+			0.1, // near
 			1000
 		);
+		camera.position.z = 10;
+		camera.position.y = 2;
 		const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
 		renderer.setSize(window.innerWidth, window.innerHeight, false);
 
@@ -28,7 +40,6 @@
 			scene.add(monkey);
 			(monkey as any).children[0].material.wireframe = true;
 		});
-		camera.position.z = 10;
 		const resizeRendererToDisplaySize = () => {
 			const width = canvas.clientWidth;
 			const height = canvas.clientHeight;
@@ -43,8 +54,11 @@
 				monkey.rotation.x += 0.01;
 				monkey.rotation.y += 0.01;
 			}
+			// console.log(window.scrollY);
+			// TODO: Actually compute this instead of guessing
+			camera.position.y = -window.scrollY / 100 + 1;
 			if (resizeRendererToDisplaySize()) {
-				camera.aspect = canvas.clientWidth / canvas.clientHeight;
+				// camera.aspect = canvas.clientWidth / canvas.clientHeight;
 				camera.updateProjectionMatrix();
 			}
 
@@ -54,4 +68,4 @@
 	});
 </script>
 
-<canvas bind:this={canvas} class="h-screen w-full"></canvas>
+<canvas bind:this={canvas} class=".bg-red-400/30 fixed inset-0 h-screen w-full pointer-events-none"></canvas>
