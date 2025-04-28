@@ -13,7 +13,7 @@
 		// 	0.1,
 		// 	1000
 		// );
-		const frustumSize = 10;
+		const frustumSize = 40;
 		const aspect = window.innerWidth / window.innerHeight;
 		const camera = new THREE.OrthographicCamera(
 			(frustumSize * aspect) / -2, // left
@@ -33,12 +33,14 @@
 		// const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
 		// const cube = new THREE.Mesh(geometry, material);
 		// scene.add(cube);
-		let monkey: THREE.Group<THREE.Object3DEventMap>;
+		let gizmo: THREE.Group<THREE.Object3DEventMap>;
 		const gltfLoader = new GLTFLoader();
-		gltfLoader.load('/models/suzanne.glb', (gltf) => {
-			monkey = gltf.scene;
-			scene.add(monkey);
-			(monkey as any).children[0].material.wireframe = true;
+		gltfLoader.load('/models/gizmo.glb', (gltf) => {
+			gizmo = gltf.scene;
+			scene.add(gizmo);
+			gizmo.rotation.y = THREE.MathUtils.degToRad(45);
+			gizmo.rotation.x = THREE.MathUtils.degToRad( -35.264);
+			// (gizmo as any).children[0].material.wireframe = true;
 		});
 		const resizeRendererToDisplaySize = () => {
 			const width = canvas.clientWidth;
@@ -50,13 +52,9 @@
 			return shouldResize;
 		};
 		const animate = () => {
-			if (monkey) {
-				monkey.rotation.x += 0.01;
-				monkey.rotation.y += 0.01;
-			}
 			// console.log(window.scrollY);
 			// TODO: Actually compute this instead of guessing
-			camera.position.y = -window.scrollY / 100 + 1;
+			camera.position.y = -window.scrollY / 50 + 7;
 			if (resizeRendererToDisplaySize()) {
 				// camera.aspect = canvas.clientWidth / canvas.clientHeight;
 				camera.updateProjectionMatrix();
