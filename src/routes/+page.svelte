@@ -11,7 +11,7 @@
 	});
 </script>
 
-<div class="min-h-screen bg-gradient-to-b from-slate-950 to-gray-950 text-sky-400">
+<div class="min-h-screen text-sky-400">
 	<div class="relative w-full overflow-x-hidden">
 		<DotGrid />
 		<!-- Backdrop for the Header, to cover the dots -->
