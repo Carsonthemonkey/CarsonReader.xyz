@@ -5,8 +5,9 @@
 	interface Props {
 		Icon: Component;
 		children: Snippet;
+		iconClasses?: string;
 	}
-	let { Icon, children }: Props = $props();
+	let { Icon, children, iconClasses }: Props = $props();
 </script>
 
 <section class="flex flex-row content-center justify-center">
@@ -18,7 +19,7 @@
 		></div>
 		<div class="flex flex-col sm:flex-row ">
 			<div class="flex items-center px-7 py-5 text-3xl justify-center sm:pr-0">
-				<div class="bg-orange rounded-full bg-slate-900 p-5 text-orange-300">
+				<div class={"bg-orange rounded-full bg-slate-900 p-5 " + iconClasses}>
 					<Icon />
 				</div>
 			</div>
