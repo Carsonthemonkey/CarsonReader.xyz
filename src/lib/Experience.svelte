@@ -25,12 +25,10 @@
 		</p>
 	</ExperienceCard>
 	<ExperienceCard Icon={IconBrain} iconClasses="text-red-300">
-		<h1 class="mb-2 text-3xl">BCI Programmer</h1>
-		<div class="w-full flex justify-center sm:justify-start">
-			<h2 class="mb-2 w-fit rounded-full border-1 bg-green-300/10 px-2 text-green-300">
-				Oregon Health & Science University
-			</h2>
-		</div>
+		<h1 class="mb-2 text-3xl ">BCI Programmer</h1>
+		<h2 class="truncate mb-2 max-w-fit mx-auto sm:mx-0 rounded-full border-1 bg-green-300/10 px-2 text-green-300">
+			Oregon Health & Science University
+		</h2>
 		<p class="font-electrolize text-lg text-sky-600">
 			This is a placeholder paragraph. It doesn't have anything here yet. We need to make sure
 			that all the things are the same size. That will happen later
@@ -38,7 +36,7 @@
 	</ExperienceCard>
 	<ExperienceCard Icon={LucideMove3d} iconClasses="text-purple-300">
 		<h1 class="mb-2 text-3xl">3D Modeler</h1>
-		<div class="w-full  flex justify-center sm:justify-start">
+		<div class="flex w-full justify-center sm:justify-start">
 			<h2 class="mb-2 w-fit rounded-full border-1 bg-green-300/10 px-2 text-green-300">
 				Lewis & Clark College
 			</h2>

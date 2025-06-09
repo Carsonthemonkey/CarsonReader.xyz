@@ -31,20 +31,20 @@
 
 </script>
 
-<section bind:this={card} class="flex flex-row content-center justify-center ">
+<section bind:this={card} class="flex flex-row content-center justify-center">
 	<div
-		class="isolate max-w-4xl overflow-clip rounded-3xl border-3 border-sky-800/50 bg-slate-900/50 backdrop-blur-sm mx-6"
+		class="isolate max-w-4xl overflow-clip rounded-3xl border-3 border-sky-800/50 bg-slate-900/50 backdrop-blur-sm mx-6 min-w-0"
 	>
 		<div
 			class="absolute -z-10 h-full w-full rounded-3xl border-3 border-sky-800/50 blur-md"
 		></div>
-		<div class="flex flex-col sm:flex-row ">
+		<div class="flex flex-col sm:flex-row">
 			<div class="flex items-center px-7 py-5 text-3xl justify-center sm:pr-0">
 				<div class={"bg-orange rounded-full bg-slate-900 p-5 " + iconClasses}>
 					<Icon />
 				</div>
 			</div>
-			<div class="m-7 mt-0 sm:mt-7 text-center sm:text-left flex flex-col justify-center">
+			<div class="m-7 mt-0 sm:mt-7 text-center sm:text-left">
 				{@render children()}
 			</div>
 		</div>
