@@ -12,7 +12,7 @@
 
 <ExperienceCard Icon={IconGraduationCap}>
 	<h1 class="text-3xl mb-2">This is a Placeholder</h1>
-	<p class="text-lg font-electrolize">
+	<p class="text-lg font-electrolize text-sky-600">
 		This is a placeholder paragraph. It doesn't have anything here yet. We need to make sure
 		that all the things are the same size. That will happen later
 	</p>
