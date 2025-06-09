@@ -22,7 +22,7 @@
 					<Icon />
 				</div>
 			</div>
-			<div class="m-7 mt-0 sm:mt-7 text-center">
+			<div class="m-7 mt-0 sm:mt-7 text-center sm:text-left">
 				{@render children()}
 			</div>
 		</div>
