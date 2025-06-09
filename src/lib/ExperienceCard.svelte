@@ -11,7 +11,7 @@
 
 <section class="flex flex-row content-center justify-center">
 	<div
-		class="isolate max-w-2xl overflow-clip rounded-3xl border-3 border-sky-800/50 bg-slate-900/50 backdrop-blur-sm mx-6"
+		class="isolate max-w-4xl overflow-clip rounded-3xl border-3 border-sky-800/50 bg-slate-900/50 backdrop-blur-sm mx-6"
 	>
 		<div
 			class="absolute -z-10 h-full w-full rounded-3xl border-3 border-sky-800/50 blur-md"
