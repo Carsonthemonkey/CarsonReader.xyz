@@ -1,16 +1,37 @@
 <script lang="ts">
-	import type { Component, Snippet } from 'svelte';
+	import gsap from 'gsap';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	import { onMount, type Component, type Snippet } from 'svelte';
+	import { prefersReducedMotion } from 'svelte/motion';
 	import IconGraduationCap from '~icons/lucide/graduation-cap';
 
+	let card: HTMLElement;
+	
 	interface Props {
 		Icon: Component;
 		children: Snippet;
 		iconClasses?: string;
 	}
 	let { Icon, children, iconClasses }: Props = $props();
+
+	onMount(() => {
+		if(prefersReducedMotion.current) return;
+		gsap.registerPlugin(ScrollTrigger);
+		gsap.from(card, {
+			// scaleY: 0.0,
+			// scaleY: 0,
+			// scaleX: 0,
+			y: 50,
+			opacity: 0.0,
+			duration: .3,
+
+			scrollTrigger: { trigger: card, start: '55% 100%' }
+		});
+	})
+
 </script>
 
-<section class="flex flex-row content-center justify-center">
+<section bind:this={card} class="flex flex-row content-center justify-center ">
 	<div
 		class="isolate max-w-4xl overflow-clip rounded-3xl border-3 border-sky-800/50 bg-slate-900/50 backdrop-blur-sm mx-6"
 	>
