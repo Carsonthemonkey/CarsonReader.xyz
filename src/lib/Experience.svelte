@@ -3,6 +3,8 @@
 	import IconGraduationCap from '~icons/lucide/graduation-cap';
 	import IconBrain from '~icons/lucide/brain';
 	import LucideMove3d from '~icons/lucide/move-3d';
+	import LucideApple from '~icons/lucide/apple';
+	
 </script>
 
 <h1
@@ -42,6 +44,18 @@
 			class="mx-auto mb-2 max-w-fit truncate rounded-full border-1 bg-green-300/10 px-2 text-green-300 sm:mx-0"
 		>
 			Lewis & Clark College
+		</h2>
+		<p class="font-electrolize text-lg text-sky-600">
+			This is a placeholder paragraph. It doesn't have anything here yet. We need to make sure
+			that all the things are the same size. That will happen later
+		</p>
+	</ExperienceCard>
+	<ExperienceCard Icon={LucideApple} iconClasses="text-cyan-300">
+		<h1 class="mb-2 text-3xl">Teacher's Assistant</h1>
+		<h2
+			class="mx-auto mb-2 max-w-fit truncate rounded-full border-1 bg-green-300/10 px-2 text-green-300 sm:mx-0"
+		>
+			Algorithms & Data Structures
 		</h2>
 		<p class="font-electrolize text-lg text-sky-600">
 			This is a placeholder paragraph. It doesn't have anything here yet. We need to make sure
