@@ -23,7 +23,7 @@
 					<Icon />
 				</div>
 			</div>
-			<div class="m-7 mt-0 sm:mt-7 text-center sm:text-left">
+			<div class="m-7 mt-0 sm:mt-7 text-center sm:text-left flex flex-col justify-center">
 				{@render children()}
 			</div>
 		</div>
