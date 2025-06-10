@@ -25,7 +25,7 @@
 					class="absolute m-10 h-full min-w-xl rounded-full bg-[radial-gradient(ellipse_at_center,_rgba(0,188,255,0.2)_0%,_transparent_70%)] blur-3xl"
 				></div>
 				<h1
-					class="max-w-2xl pt-24 text-center text-7xl font-bold text-sky-400 ease-out motion-safe:transition-all motion-safe:duration-[1500ms] md:text-8xl"
+					class="max-w-2xl pt-24 text-center text-7xl font-bold text-sky-400 ease-out motion-safe:transition-all motion-safe:duration-[1500ms] md:text-8xl text-shadow-lg text-shadow-sky-600"
 					class:blur-[50px]={!loaded}
 					class:opacity-0={!loaded}
 				>

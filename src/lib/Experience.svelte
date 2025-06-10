@@ -4,12 +4,9 @@
 	import IconBrain from '~icons/lucide/brain';
 	import LucideMove3d from '~icons/lucide/move-3d';
 	import LucideApple from '~icons/lucide/apple';
-	
 </script>
 
-<h1
-	class="top-0 m-10 w-fit rounded-full border-2 border-sky-400 bg-gray-950 p-4 text-4xl text-yellow-200"
->
+<h1 class="font-electrolize~ isolate my-14 text-center text-6xl text-shadow-sm text-shadow-sky-600">
 	Experience
 </h1>
 

@@ -96,7 +96,7 @@
 			<div
 				class="flex flex-col gap-3 rounded-b-2xl bg-slate-950 bg-gradient-to-br p-10 shadow-2xl shadow-sky-400/20 outline outline-sky-300"
 			>
-				<h2 class="text-4xl text-yellow-200">About Me</h2>
+				<h2 class="text-4xl text-green-300 text-shadow-sm text-shadow-green-600/70">About Me</h2>
 				<hr />
 				<p class="text-lg text-sky-300 sm:text-2xl font-electrolize">
 					This is a section about me. It has interesting things in it. Or at least it will.
