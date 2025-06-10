@@ -33,7 +33,7 @@
 
 <section bind:this={card} class="flex flex-row content-center justify-center">
 	<div
-		class="isolate max-w-4xl overflow-clip rounded-3xl border-3 border-sky-800/50 bg-slate-900/50 backdrop-blur-sm mx-6 min-w-0"
+		class="isolate max-w-4xl overflow-clip rounded-3xl border-3 border-sky-800/50 ~bg-slate-900/50 backdrop-blur-sm mx-6 min-w-0 hover:scale-103 transition-all hover:bg-radial-[at_50%_0%] from-slate-900/60 from-0%"
 	>
 		<div
 			class="absolute -z-10 h-full w-full rounded-3xl border-3 border-sky-800/50 blur-md"
