@@ -1,12 +1,34 @@
-<script>
+<script lang="ts">
 	import ExperienceCard from './ExperienceCard.svelte';
 	import IconGraduationCap from '~icons/lucide/graduation-cap';
 	import IconBrain from '~icons/lucide/brain';
 	import LucideMove3d from '~icons/lucide/move-3d';
 	import LucideApple from '~icons/lucide/apple';
+	import gsap from 'gsap';
+	import { SplitText } from 'gsap/SplitText';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	import { onMount } from 'svelte';
+
+	let header: HTMLElement;
+
+	onMount(() => {
+		gsap.registerPlugin(SplitText);
+		gsap.registerPlugin(ScrollTrigger);
+		let split = SplitText.create(header, { type: 'chars' });
+		gsap.from(split.chars, {
+			duration: 0.6,
+			autoAlpha: 0,
+			x: -10,
+			stagger: 0.05,
+			scrollTrigger: {trigger: header, start: '100% 90%'},
+		});
+	});
 </script>
 
-<h1 class="font-electrolize~ isolate my-14 text-center text-6xl text-shadow-sm text-shadow-sky-600">
+<h1
+	bind:this={header}
+	class="font-electrolize~ isolate my-24 text-center text-6xl text-shadow-sky-600 text-shadow-sm"
+>
 	Experience
 </h1>
 
