@@ -25,7 +25,7 @@
 			opacity: 0.0,
 			duration: .3,
 
-			scrollTrigger: { trigger: card, start: '55% 100%' }
+			scrollTrigger: { trigger: card, start: '55% 100%'}
 		});
 	})
 

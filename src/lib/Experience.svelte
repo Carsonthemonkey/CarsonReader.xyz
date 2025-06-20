@@ -16,10 +16,10 @@
 		gsap.registerPlugin(ScrollTrigger);
 		let split = SplitText.create(header, { type: 'chars' });
 		gsap.from(split.chars, {
-			duration: 0.6,
+			duration: 0.3,
 			autoAlpha: 0,
 			x: -10,
-			stagger: 0.05,
+			stagger: 0.02,
 			scrollTrigger: {trigger: header, start: '100% 90%'},
 		});
 	});
