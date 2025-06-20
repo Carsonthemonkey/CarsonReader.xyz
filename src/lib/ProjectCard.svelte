@@ -10,10 +10,10 @@
 </script>
 
 <div
-	class="isolate flex max-w-1/2 flex-col overflow-hidden rounded-3xl border-3 border-sky-800/50 p-4 backdrop-blur-sm"
+	class="isolate flex max-w-[500px] mx-6 flex-col overflow-hidden rounded-3xl border-3 border-sky-800/50 p-4 backdrop-blur-sm"
 >
 	<div
-		class=" absolute inset-0 -z-10 m-0 h-full w-full scale-[101%] rounded-3xl border-3 border-sky-800/50 blur-md"
+		class="absolute inset-0 -z-10 m-0 h-full w-full scale-[101%] rounded-3xl border-3 border-sky-800/50 blur-md"
 	></div>
 	<div class="relative aspect-video max-h-fit w-full overflow-clip rounded-2xl bg-slate-900">
 		<img
