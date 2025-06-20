@@ -1,22 +1,34 @@
-<script>
-	import image from '$lib/assets/path_tracer_placeholder.png';
+<script lang="ts">
+	interface Props {
+		title: string;
+		description: string;
+		image: string;
+		imageAlt: string;
+		active?: boolean;
+	}
+	let { title, description, image, imageAlt, active = false }: Props = $props();
 </script>
 
 <div
-	class="isolate flex max-w-1/2 flex-col rounded-3xl border-3 border-sky-800/50 p-4 backdrop-blur-sm overflow-hidden"
-    
+	class="isolate flex max-w-1/2 flex-col overflow-hidden rounded-3xl border-3 border-sky-800/50 p-4 backdrop-blur-sm"
 >
-	<div class=" inset-0 -z-10 absolute h-full w-full border-3 rounded-3xl m-0 scale-[101%] blur-md border-sky-800/50"></div>
+	<div
+		class=" absolute inset-0 -z-10 m-0 h-full w-full scale-[101%] rounded-3xl border-3 border-sky-800/50 blur-md"
+	></div>
 	<div class="relative aspect-video max-h-fit w-full overflow-clip rounded-2xl bg-slate-900">
-		<img src={image} class="block h-full w-full object-cover grayscale" />
+		<img
+			src={image}
+			class="block h-full w-full object-cover"
+			alt={imageAlt}
+			class:grayscale={!active}
+		/>
 		<div class="absolute inset-0 min-h-full min-w-full bg-sky-600 mix-blend-multiply"></div>
 	</div>
 	<div class=" p-3">
-		<h1 class="text-3xl">Project Title</h1>
+		<h1 class="text-3xl">{title}</h1>
 		<hr class="my-2 border-dotted" />
 		<p class="font-electrolize m-0 pt-0 text-lg">
-			This is a whole paragraph. It has a lot of very very interesting things about this
-			project that I worked on
+			{description}
 		</p>
 	</div>
 </div>
