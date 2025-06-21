@@ -24,12 +24,12 @@
 	<div
 		class="absolute inset-0 -z-10 m-0 h-full w-full scale-[101%] rounded-3xl border-3 border-sky-800/50 blur-md"
 	></div>
-    <!-- TODO: make sure this is still positioned correctly for small images -->
-    <!-- Image glow -->
+	<!-- TODO: make sure this is still positioned correctly for small images -->
+	<!-- Image glow -->
 	<img
 		src={image}
-		class="blur-3xl scale-80 aspect-video inset-0 absolute w-full object-cover opacity-0 transition-opacity"
-        class:opacity-100={active}
+		class="absolute inset-0 aspect-video w-full scale-80 object-cover opacity-0 blur-3xl transition-opacity"
+		class:opacity-100={active}
 		alt=""
 		role="presentation"
 		aria-hidden="true"
@@ -48,7 +48,26 @@
 		></div>
 	</div>
 	<div class=" p-3">
-		<h1 class="text-3xl text-green-300">{title}</h1>
+		<h1 class="w-fit text-3xl text-green-300">{title}</h1>
+		<div class="mt-1 flex flex-row gap-3 text-sky-800">
+			<div
+				class="group flex items-center rounded-full border-1 border-green-300/0 px-1 transition-all hover:border-green-300 hover:bg-green-300/10 hover:text-green-300"
+			>
+				<i class="devicon-tailwindcss-original"></i>
+				<span
+					class="group-hover:mx-1 max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all group-hover:max-w-[200px] group-hover:opacity-100"
+					>Tailwind</span
+				>
+			</div>
+
+			<i class="devicon-svelte-plain"></i>
+
+			<i class="devicon-python-plain"></i>
+
+			<i class="devicon-fastapi-plain"></i>
+
+			<i class="devicon-typescript-plain"></i>
+		</div>
 		<hr class="my-2 border-dotted" />
 		<p class="font-electrolize m-0 pt-0 text-lg">
 			{description}
