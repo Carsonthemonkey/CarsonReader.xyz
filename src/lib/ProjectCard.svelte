@@ -1,4 +1,6 @@
 <script lang="ts">
+	import IconTag from "./IconTag.svelte";
+
 	interface Props {
 		title: string;
 		description: string;
@@ -49,17 +51,10 @@
 	</div>
 	<div class=" p-3">
 		<h1 class="w-fit text-3xl text-green-300">{title}</h1>
-		<div class="mt-1 flex flex-row gap-3 text-sky-800">
-			<div
-				class="group flex items-center rounded-full border-1 border-green-300/0 px-1 transition-all hover:border-green-300 hover:bg-green-300/10 hover:text-green-300"
-			>
-				<i class="devicon-tailwindcss-original"></i>
-				<span
-					class="group-hover:mx-1 max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all group-hover:max-w-[200px] group-hover:opacity-100"
-					>Tailwind</span
-				>
-			</div>
-
+		<div class="mt-1 flex flex-row text-sky-800">
+			<IconTag />
+			<IconTag />
+			<IconTag />
 			<i class="devicon-svelte-plain"></i>
 
 			<i class="devicon-python-plain"></i>
