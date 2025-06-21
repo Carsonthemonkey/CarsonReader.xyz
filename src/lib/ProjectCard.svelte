@@ -24,6 +24,8 @@
 	<div
 		class="absolute inset-0 -z-10 m-0 h-full w-full scale-[101%] rounded-3xl border-3 border-sky-800/50 blur-md"
 	></div>
+    <!-- TODO: make sure this is still positioned correctly for small images -->
+    <!-- Image glow -->
 	<img
 		src={image}
 		class="blur-3xl scale-80 aspect-video inset-0 absolute w-full object-cover opacity-0 transition-opacity"
