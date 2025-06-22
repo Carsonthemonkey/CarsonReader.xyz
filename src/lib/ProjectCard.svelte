@@ -1,5 +1,5 @@
 <script lang="ts">
-	import IconTag from "./IconTag.svelte";
+	import IconTag from './IconTag.svelte';
 
 	interface Props {
 		title: string;
@@ -52,16 +52,12 @@
 	<div class=" p-3">
 		<h1 class="w-fit text-3xl text-green-300">{title}</h1>
 		<div class="mt-1 flex flex-row text-sky-800">
-			<IconTag />
-			<IconTag />
-			<IconTag />
-			<i class="devicon-svelte-plain"></i>
-
-			<i class="devicon-python-plain"></i>
-
-			<i class="devicon-fastapi-plain"></i>
-
-			<i class="devicon-typescript-plain"></i>
+			<IconTag iconClass="devicon-sqlite-plain">SQL</IconTag>
+			<IconTag iconClass="devicon-svelte-plain">Svelte</IconTag>
+			<IconTag iconClass="devicon-python-plain">Python</IconTag>
+			<IconTag iconClass="devicon-fastapi-plain">FastAPI</IconTag>
+			<IconTag iconClass="devicon-tailwindcss-original">Tailwind</IconTag>
+			<IconTag iconClass="devicon-typescript-plain">TypeScript</IconTag>
 		</div>
 		<hr class="my-2 border-dotted" />
 		<p class="font-electrolize m-0 pt-0 text-lg">
