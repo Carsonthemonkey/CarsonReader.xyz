@@ -8,7 +8,7 @@
 >
 	<i class={iconClass}></i>
 	<span
-		class="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all group-hover:mx-1 group-hover:max-w-[200px] group-hover:opacity-100 not-group-hover:duration-400 duration-250"
+		class="max-w-0 overflow-hidden whitespace-nowrap opacity-0 transition-all group-hover:mx-1 group-hover:max-w-[200px] group-hover:opacity-100 not-group-hover:duration-200 duration-400"
 		>{@render children()}</span
 	>
 </div>
