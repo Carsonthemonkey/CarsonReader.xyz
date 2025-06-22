@@ -6,14 +6,15 @@
 		description: string;
 		image: string;
 		imageAlt: string;
+		classes?: string;
 		active?: boolean;
 	}
-	let { title, description, image, imageAlt, active = false }: Props = $props();
+	let { title, description, image, imageAlt, classes, active = false }: Props = $props();
 	// active = true;
 </script>
 
 <div
-	class="isolate mx-6 flex max-w-[500px] flex-col overflow-hidden rounded-3xl border-3 border-sky-800/50 p-4 backdrop-blur-sm transition-transform"
+	class={"isolate mx-6 flex max-w-[500px] flex-col overflow-hidden rounded-3xl border-3 border-sky-800/50 p-4 backdrop-blur-sm transition-transform  " + classes}
 	role="presentation"
 	onmouseenter={() => {
 		active = true;
