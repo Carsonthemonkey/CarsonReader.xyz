@@ -73,3 +73,8 @@
 		description={'This is a whole paragraph. It has a lot of very very interesting things about this project that I worked on'}
 	/> -->
 </div>
+
+<div class="flex justify-center text-3xl gap-2 isolate">
+	<button onclick={() => {activeIndex -= 1}} class="text-slate-800 bg-sky-400 rounded-full p-2 cursor-pointer">&#8592</button>
+	<button onclick={() => {activeIndex += 1}} class="text-slate-800 bg-sky-400 rounded-full p-2 cursor-pointer">&#8594</button>
+</div>
