@@ -37,6 +37,14 @@
 			return 'absolute translate-x-80 scale-80 blur-xs';
 		return 'hidden';
 	}
+
+	function moveCarouselLeft(){
+		activeIndex--;
+		if (activeIndex == -1) activeIndex = projects.length - 1;
+	}
+	function moveCarouselRight(){
+		activeIndex = (activeIndex + 1) % projects.length;
+	}
 </script>
 
 <h1 class="m-10 text-center text-4xl">Some things I've made</h1>
@@ -75,6 +83,6 @@
 </div>
 
 <div class="flex justify-center text-3xl gap-2 isolate">
-	<button onclick={() => {activeIndex -= 1}} class="text-slate-800 bg-sky-400 rounded-full p-2 cursor-pointer">&#8592</button>
-	<button onclick={() => {activeIndex += 1}} class="text-slate-800 bg-sky-400 rounded-full p-2 cursor-pointer">&#8594</button>
+	<button onclick={moveCarouselLeft} class="text-slate-800 bg-sky-400 rounded-full p-2 cursor-pointer">&#8592</button>
+	<button onclick={moveCarouselRight} class="text-slate-800 bg-sky-400 rounded-full p-2 cursor-pointer">&#8594</button>
 </div>
