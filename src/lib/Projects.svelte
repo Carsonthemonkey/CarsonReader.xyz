@@ -19,6 +19,11 @@
 			title: 'Portfolio Website',
 			description:
 				'The website you are on right now! Created with Sveltekit, TailwindCSS, and TypeScript. Has custom GLSL shaders running in WebGL to create the background effects.'
+		},
+		{
+			title: 'G.I.S.T',
+			description:
+				'An app for automatically translating, transcribing, and summarizing audio recordings using Whisper and GPT. Written in React with a desktop app via Electron.'
 		}
 	];
 	
@@ -28,7 +33,7 @@
 		if(index == activeIndex) return "z-10";
 		if(index == activeIndex - 1) return "absolute -translate-x-80 scale-80 blur-xs";
 		if(index == activeIndex + 1) return "absolute translate-x-80 scale-80 blur-xs";
-		return "";
+		return "hidden";
 	}
 
 </script>
