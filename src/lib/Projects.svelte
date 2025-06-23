@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import ProjectCard from './ProjectCard.svelte';
 	import testImage from '$lib/assets/path_tracer_placeholder.png';
 
@@ -21,11 +21,31 @@
 				'The website you are on right now! Created with Sveltekit, TailwindCSS, and TypeScript. Has custom GLSL shaders running in WebGL to create the background effects.'
 		}
 	];
+	
+	let activeIndex = $state(1);
+	
+	function getStylesForIndex(index: number){
+		if(index == activeIndex) return "z-10";
+		if(index == activeIndex - 1) return "absolute -translate-x-80 scale-80 blur-xs";
+		if(index == activeIndex + 1) return "absolute translate-x-80 scale-80 blur-xs";
+		return "";
+	}
+
 </script>
 
 <h1 class="m-10 text-center text-4xl">Some things I've made</h1>
-<div class="my-15 flex w-full justify-center">
-	<ProjectCard
+<div class="my-15 flex w-full justify-center items-center">
+	{#each projects as project, i}
+		<ProjectCard 
+			classes={getStylesForIndex(i)}
+			title={project.title}
+			image={testImage}
+			imageAlt="testImage"
+			active={i == activeIndex}
+			description={project.description}
+		/>
+	{/each}
+	<!-- <ProjectCard
 		classes="absolute -translate-x-80 scale-80 blur-xs"
 		image={testImage}
 		imageAlt="test alt"
@@ -45,5 +65,5 @@
 		imageAlt="test alt"
 		title={'Project Title'}
 		description={'This is a whole paragraph. It has a lot of very very interesting things about this project that I worked on'}
-	/>
+	/> -->
 </div>
