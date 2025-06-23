@@ -40,6 +40,7 @@
 		description={'This is a whole paragraph. It has a lot of very very interesting things about this project that I worked on'}
 	/>
 	<ProjectCard
+		active={true}
 		image={testImage}
 		imageAlt="test alt"
 		title={'Project Title'}

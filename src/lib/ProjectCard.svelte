@@ -14,18 +14,13 @@
 </script>
 
 <div
-	class={"isolate mx-6 flex max-w-[500px] flex-col overflow-hidden rounded-3xl border-3 border-sky-800/50 p-4 backdrop-blur-sm transition-transform  " + classes}
+	class={'isolate mx-6 flex max-w-[500px] flex-col overflow-hidden rounded-3xl border-3 border-sky-800/50 p-4 backdrop-blur-sm transition-transform  ' +
+		classes}
 	role="presentation"
-	onmouseenter={() => {
-		active = true;
-	}}
-	onmouseleave={() => {
-		active = false;
-	}}
 	class:scale-105={active}
 >
 	<div
-		class="absolute inset-0 -z-10 m-0 h-full w-full scale-[101%] rounded-3xl border-3 border-sky-800/50 blur-md"
+		class="absolute inset-0 -z-10 m-0 h-full w-full scale-[101%] rounded-3xl border-3 border-sky-800/50 blur-md bg-slate-950/30"
 	></div>
 	<!-- TODO: make sure this is still positioned correctly for small images -->
 	<!-- Image glow -->
