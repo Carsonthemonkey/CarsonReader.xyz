@@ -32,10 +32,10 @@
 	function getStylesForIndex(index: number) {
 		if (index == activeIndex) return `z-10`;
 		if (index == activeIndex - 1 || (activeIndex == 0 && index == projects.length - 1))
-			return 'absolute -translate-x-80 scale-80 blur-xs';
+			return 'absolute -translate-x-80 scale-80 blur-xs opacity-100';
 		if (index == (activeIndex + 1) % projects.length)
-			return 'absolute translate-x-80 scale-80 blur-xs';
-		return 'hidden';
+			return 'absolute translate-x-80 scale-80 blur-xs opacity-100';
+		return 'absolute opacity-0 scale-50 translate-x-80';
 	}
 
 	function moveCarouselLeft(){
@@ -51,7 +51,7 @@
 <div class="my-15 flex w-full items-center justify-center">
 	{#each projects as project, i}
 		<ProjectCard
-			classes={getStylesForIndex(i)}
+			classes={"duration-1000 " + getStylesForIndex(i)}
 			title={project.title}
 			image={testImage}
 			imageAlt="testImage"

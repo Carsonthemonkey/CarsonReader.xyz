@@ -17,7 +17,6 @@
 	class={'isolate mx-6 flex max-w-[500px] flex-col overflow-hidden rounded-3xl border-3 border-sky-800/50 p-4 backdrop-blur-sm transition-transform  ' +
 		classes}
 	role="presentation"
-	class:scale-105={active}
 	class:pointer-events-none={!active}
 >
 	<div
