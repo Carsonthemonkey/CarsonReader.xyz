@@ -26,22 +26,23 @@
 				'An app for automatically translating, transcribing, and summarizing audio recordings using Whisper and GPT. Written in React with a desktop app via Electron.'
 		}
 	];
-	
-	let activeIndex = $state(1);
-	
-	function getStylesForIndex(index: number){
-		if(index == activeIndex) return "z-10";
-		if(index == activeIndex - 1) return "absolute -translate-x-80 scale-80 blur-xs";
-		if(index == activeIndex + 1) return "absolute translate-x-80 scale-80 blur-xs";
-		return "hidden";
-	}
 
+	let activeIndex = $state(0);
+
+	function getStylesForIndex(index: number) {
+		if (index == activeIndex) return `z-10`;
+		if (index == activeIndex - 1 || (activeIndex == 0 && index == projects.length - 1))
+			return 'absolute -translate-x-80 scale-80 blur-xs';
+		if (index == (activeIndex + 1) % projects.length)
+			return 'absolute translate-x-80 scale-80 blur-xs';
+		return 'hidden';
+	}
 </script>
 
 <h1 class="m-10 text-center text-4xl">Some things I've made</h1>
-<div class="my-15 flex w-full justify-center items-center">
+<div class="my-15 flex w-full items-center justify-center">
 	{#each projects as project, i}
-		<ProjectCard 
+		<ProjectCard
 			classes={getStylesForIndex(i)}
 			title={project.title}
 			image={testImage}
