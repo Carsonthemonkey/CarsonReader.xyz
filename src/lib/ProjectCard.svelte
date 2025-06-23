@@ -18,6 +18,7 @@
 		classes}
 	role="presentation"
 	class:scale-105={active}
+	class:pointer-events-none={!active}
 >
 	<div
 		class="absolute inset-0 -z-10 m-0 h-full w-full scale-[101%] rounded-3xl border-3 border-sky-800/50 blur-md bg-slate-950/30"
