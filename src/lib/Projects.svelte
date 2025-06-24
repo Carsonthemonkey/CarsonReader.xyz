@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ProjectCard from './ProjectCard.svelte';
 	import testImage from '$lib/assets/path_tracer_placeholder.png';
+	import testImage2 from '$lib/assets/DarkSeer Screenshot.png';
 
 	// Later on, I will likely have an 'articles' section, so would be nice to fetch this dynamically
 	// TODO: Add images to the projects
@@ -9,27 +10,32 @@
 		{
 			title: 'Path Tracer',
 			description:
-				'A multithreaded CPU path tracer written in C, using a simple drawing library on top of X11. Supports importing 3D models, camera controls, depth of field, and more.'
+				'A multithreaded CPU path tracer written in C, using a simple drawing library on top of X11. Supports importing 3D models, camera controls, depth of field, and more.',
+			image: testImage
 		},
 		{
 			title: 'Test Project',
 			description:
-				'This is a whole paragraph. It has a lot of very very interesting things about this project that I worked on'
+			'This is a whole paragraph. It has a lot of very very interesting things about this project that I worked on',
+			image: testImage
 		},
 		{
 			title: 'Portfolio Website',
 			description:
-				'The website you are on right now! Created with Sveltekit, TailwindCSS, and TypeScript. Has custom GLSL shaders running in WebGL to create the background effects.'
+			'The website you are on right now! Created with Sveltekit, TailwindCSS, and TypeScript. Has custom GLSL shaders running in WebGL to create the background effects.',
+			image: testImage2
 		},
 		{
 			title: 'G.I.S.T',
 			description:
-				'An app for automatically translating, transcribing, and summarizing audio recordings using Whisper and GPT. Written in React with a desktop app via Electron.'
+			'An app for automatically translating, transcribing, and summarizing audio recordings using Whisper and GPT. Written in React with a desktop app via Electron.',
+			image: testImage2
 		},
 		{
 			title: 'QuestScraper',
 			description:
-				'This is a placeholder'
+			'This is a placeholder',
+			image: testImage
 		}
 	];
 
@@ -66,7 +72,7 @@
 		<ProjectCard
 			classes={'duration-1000 ' + getStylesForIndex(i)}
 			title={project.title}
-			image={testImage}
+			image={project.image}
 			imageAlt="testImage"
 			active={i == activeIndex}
 			description={project.description}
