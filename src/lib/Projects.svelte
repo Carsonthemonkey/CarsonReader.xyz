@@ -30,11 +30,13 @@
 	let activeIndex = $state(0);
 
 	function getStylesForIndex(index: number) {
-		if (index == activeIndex) return `z-10`;
+		if (index == activeIndex) return `z-20`;
 		if (index == activeIndex - 1 || (activeIndex == 0 && index == projects.length - 1))
-			return 'absolute -translate-x-80 scale-80 blur-[4px] opacity-100';
+			return 'absolute -translate-x-80 scale-80 blur-[4px] opacity-100 z-10';
 		if (index == (activeIndex + 1) % projects.length)
-			return 'absolute translate-x-80 scale-80 blur-[4px] opacity-100';
+			return 'absolute translate-x-80 scale-80 blur-[4px] opacity-100 z-10';
+
+		if(index < activeIndex) return 'absolute opacity-0 scale-50 -translate-x-80'
 		return 'absolute opacity-0 scale-50 translate-x-80';
 	}
 
@@ -48,7 +50,7 @@
 </script>
 
 <h1 class="m-10 text-center text-4xl">Some things I've made</h1>
-<div class="my-15 flex w-full items-center justify-center">
+<div class="my-15 flex w-full items-center justify-center min-h-[600px]">
 	{#each projects as project, i}
 		<ProjectCard
 			classes={"duration-1000 " + getStylesForIndex(i)}
