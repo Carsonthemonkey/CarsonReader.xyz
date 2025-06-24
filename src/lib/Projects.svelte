@@ -46,10 +46,10 @@
 		if (index == activeIndex) return `z-20`;
 		// Immediately to the left
 		if (index == activeIndex - 1 || (activeIndex == 0 && index == projects.length - 1))
-			return 'absolute -translate-x-80 scale-80 blur-[4px] opacity-100 z-10';
+			return 'absolute sm:-translate-x-80 scale-80 blur-[4px] opacity-100 z-10 -translate-x-[93%]';
 		// Immediately to the right
 		if (index == (activeIndex + 1) % projects.length)
-			return 'absolute translate-x-80 scale-80 blur-[4px] opacity-100 z-10';
+			return 'absolute sm:translate-x-80 scale-80 blur-[4px] opacity-100 z-10 translate-x-[93%]';
 		// Hidden and to the right
 		if (index == (activeIndex + 2) % projects.length)
 			return 'absolute opacity-0 scale-50 translate-x-50 blur-[4px]';
@@ -67,7 +67,7 @@
 </script>
 
 <h1 class="m-10 text-center text-4xl">Some things I've made</h1>
-<div class="my-15 flex min-h-[600px] w-full items-center justify-center">
+<div class="my-15 relative flex min-h-[600px] w-full items-center justify-center p-0">
 	{#each projects as project, i}
 		<ProjectCard
 			classes={'duration-1000 ' + getStylesForIndex(i)}
