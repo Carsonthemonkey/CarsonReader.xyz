@@ -14,7 +14,7 @@
 </script>
 
 <div
-	class={'isolate mx-6 flex max-w-[500px] flex-col overflow-hidden rounded-3xl border-3 border-sky-800/50 p-4 backdrop-blur-sm transition-all ' +
+	class={'isolate my-0 mx-6 flex max-w-[500px] flex-col overflow-hidden rounded-3xl border-3 border-sky-800/50 p-4 backdrop-blur-sm transition-all ' +
 		classes}
 	role="presentation"
 	class:pointer-events-none={!active}

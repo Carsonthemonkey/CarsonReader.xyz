@@ -67,7 +67,7 @@
 </script>
 
 <h1 class="m-10 text-center text-4xl">Some things I've made</h1>
-<div class="my-15 relative flex min-h-[600px] w-full items-center justify-center p-0">
+<div class="relative flex min-h-[500px] w-full items-center justify-center p-0">
 	{#each projects as project, i}
 		<ProjectCard
 			classes={'duration-1000 ' + getStylesForIndex(i)}
