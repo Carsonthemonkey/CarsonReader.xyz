@@ -30,13 +30,17 @@
 	let activeIndex = $state(0);
 
 	function getStylesForIndex(index: number) {
+		// Active element
 		if (index == activeIndex) return `z-20`;
+		// Immediately to the left
 		if (index == activeIndex - 1 || (activeIndex == 0 && index == projects.length - 1))
 			return 'absolute -translate-x-80 scale-80 blur-[4px] opacity-100 z-10';
+		// Immediately to the right
 		if (index == (activeIndex + 1) % projects.length)
 			return 'absolute translate-x-80 scale-80 blur-[4px] opacity-100 z-10';
-
+		// Hidden and to the left
 		if(index < activeIndex) return 'absolute opacity-0 scale-50 -translate-x-80'
+		// hidden and to the right
 		return 'absolute opacity-0 scale-50 translate-x-80';
 	}
 
@@ -61,27 +65,6 @@
 			description={project.description}
 		/>
 	{/each}
-	<!-- <ProjectCard
-		classes="absolute -translate-x-80 scale-80 blur-xs"
-		image={testImage}
-		imageAlt="test alt"
-		title={'Project Title'}
-		description={'This is a whole paragraph. It has a lot of very very interesting things about this project that I worked on'}
-	/>
-	<ProjectCard
-		classes="absolute translate-x-80 scale-80 blur-xs"
-		image={testImage}
-		imageAlt="test alt"
-		title={'Project Title'}
-		description={'This is a whole paragraph. It has a lot of very very interesting things about this project that I worked on'}
-	/>
-	<ProjectCard
-		active={true}
-		image={testImage}
-		imageAlt="test alt"
-		title={'Project Title'}
-		description={'This is a whole paragraph. It has a lot of very very interesting things about this project that I worked on'}
-	/> -->
 </div>
 
 <div class="flex justify-center text-3xl gap-2 isolate">
