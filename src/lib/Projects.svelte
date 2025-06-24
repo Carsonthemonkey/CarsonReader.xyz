@@ -4,6 +4,7 @@
 
 	// Later on, I will likely have an 'articles' section, so would be nice to fetch this dynamically
 	// TODO: Add images to the projects
+	// There needs to be at least 5 projects for the animations to display properly.
 	let projects = [
 		{
 			title: 'Path Tracer',
@@ -24,6 +25,11 @@
 			title: 'G.I.S.T',
 			description:
 				'An app for automatically translating, transcribing, and summarizing audio recordings using Whisper and GPT. Written in React with a desktop app via Electron.'
+		},
+		{
+			title: 'QuestScraper',
+			description:
+				'This is a placeholder'
 		}
 	];
 
@@ -38,26 +44,27 @@
 		// Immediately to the right
 		if (index == (activeIndex + 1) % projects.length)
 			return 'absolute translate-x-80 scale-80 blur-[4px] opacity-100 z-10';
-		// Hidden and to the left
-		if(index < activeIndex) return 'absolute opacity-0 scale-50 -translate-x-80'
-		// hidden and to the right
-		return 'absolute opacity-0 scale-50 translate-x-80';
+		// Hidden and to the right
+		if (index == (activeIndex + 2) % projects.length)
+			return 'absolute opacity-0 scale-50 translate-x-50 blur-[4px]';
+		// hidden and to the left
+		return 'absolute opacity-0 scale-50 -translate-x-80 blur-[4px]';
 	}
 
-	function moveCarouselLeft(){
+	function moveCarouselLeft() {
 		activeIndex--;
 		if (activeIndex == -1) activeIndex = projects.length - 1;
 	}
-	function moveCarouselRight(){
+	function moveCarouselRight() {
 		activeIndex = (activeIndex + 1) % projects.length;
 	}
 </script>
 
 <h1 class="m-10 text-center text-4xl">Some things I've made</h1>
-<div class="my-15 flex w-full items-center justify-center min-h-[600px]">
+<div class="my-15 flex min-h-[600px] w-full items-center justify-center">
 	{#each projects as project, i}
 		<ProjectCard
-			classes={"duration-1000 " + getStylesForIndex(i)}
+			classes={'duration-1000 ' + getStylesForIndex(i)}
 			title={project.title}
 			image={testImage}
 			imageAlt="testImage"
@@ -67,7 +74,13 @@
 	{/each}
 </div>
 
-<div class="flex justify-center text-3xl gap-2 isolate">
-	<button onclick={moveCarouselLeft} class="text-slate-800 bg-sky-400 rounded-full p-2 cursor-pointer">&#8592</button>
-	<button onclick={moveCarouselRight} class="text-slate-800 bg-sky-400 rounded-full p-2 cursor-pointer">&#8594</button>
+<div class="isolate flex justify-center gap-2 text-3xl">
+	<button
+		onclick={moveCarouselLeft}
+		class="cursor-pointer rounded-full bg-sky-400 p-2 text-slate-800">&#8592</button
+	>
+	<button
+		onclick={moveCarouselRight}
+		class="cursor-pointer rounded-full bg-sky-400 p-2 text-slate-800">&#8594</button
+	>
 </div>
