@@ -14,7 +14,7 @@
 </script>
 
 <div
-	class={'isolate mx-6 flex max-w-[500px] flex-col overflow-hidden rounded-3xl border-3 border-sky-800/50 p-4 backdrop-blur-sm transition-transform  ' +
+	class={'isolate mx-6 flex max-w-[500px] flex-col overflow-hidden rounded-3xl border-3 border-sky-800/50 p-4 backdrop-blur-sm transition-all ' +
 		classes}
 	role="presentation"
 	class:pointer-events-none={!active}
@@ -26,7 +26,7 @@
 	<!-- Image glow -->
 	<img
 		src={image}
-		class="absolute inset-0 aspect-video w-full scale-80 object-cover opacity-0 blur-3xl transition-opacity"
+		class="absolute inset-0 aspect-video w-full scale-80 object-cover opacity-0 blur-3xl transition-opacity duration-300 delay-200"
 		class:opacity-100={active}
 		alt=""
 		role="presentation"
@@ -35,13 +35,13 @@
 	<div class="relative aspect-video max-h-fit w-full overflow-clip rounded-2xl bg-slate-900">
 		<img
 			src={image}
-			class="block h-full w-full object-cover opacity-100"
+			class="block h-full w-full object-cover opacity-100 transition-all delay-200 duration-300"
 			alt={imageAlt}
-			class:grayscale={!active}
+			class:saturate-0={!active}
 		/>
-		<!-- Image Glow -->
+		<!-- Image Tint -->
 		<div
-			class="absolute inset-0 min-h-full min-w-full bg-sky-600 mix-blend-multiply transition-opacity"
+			class="absolute inset-0 min-h-full min-w-full bg-sky-600 mix-blend-multiply transition-opacity delay-200 duration-300"
 			class:opacity-0={active}
 		></div>
 	</div>

@@ -32,9 +32,9 @@
 	function getStylesForIndex(index: number) {
 		if (index == activeIndex) return `z-10`;
 		if (index == activeIndex - 1 || (activeIndex == 0 && index == projects.length - 1))
-			return 'absolute -translate-x-80 scale-80 blur-xs opacity-100';
+			return 'absolute -translate-x-80 scale-80 blur-[4px] opacity-100';
 		if (index == (activeIndex + 1) % projects.length)
-			return 'absolute translate-x-80 scale-80 blur-xs opacity-100';
+			return 'absolute translate-x-80 scale-80 blur-[4px] opacity-100';
 		return 'absolute opacity-0 scale-50 translate-x-80';
 	}
 
