@@ -70,7 +70,7 @@
 <div class="relative flex min-h-[500px] w-full items-center justify-center p-0">
 	{#each projects as project, i}
 		<ProjectCard
-			classes={'duration-1000 ' + getStylesForIndex(i)}
+			classes={'duration-500 ' + getStylesForIndex(i)}
 			title={project.title}
 			image={project.image}
 			imageAlt="testImage"

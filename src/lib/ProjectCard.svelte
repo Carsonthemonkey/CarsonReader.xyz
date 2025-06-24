@@ -35,13 +35,13 @@
 	<div class="relative aspect-video max-h-fit w-full overflow-clip rounded-2xl bg-slate-900">
 		<img
 			src={image}
-			class="block h-full w-full object-cover opacity-100 transition-all delay-200 duration-300"
+			class="block h-full w-full object-cover opacity-100 transition-all sm:delay-200 duration-300"
 			alt={imageAlt}
 			class:saturate-0={!active}
 		/>
 		<!-- Image Tint -->
 		<div
-			class="absolute inset-0 min-h-full min-w-full bg-sky-600 mix-blend-multiply transition-opacity delay-200 duration-300"
+			class="absolute inset-0 min-h-full min-w-full bg-sky-600 mix-blend-multiply transition-opacity sm:delay-200 duration-300"
 			class:opacity-0={active}
 		></div>
 	</div>
