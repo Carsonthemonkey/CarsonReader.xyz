@@ -48,7 +48,7 @@
 			inline: 'center',
 			block: 'nearest'
 		});
-		console.log(carouselNumberElements[activeIndex])
+		console.log(carouselNumberElements[activeIndex]);
 	});
 	function getStylesForIndex(index: number) {
 		// Active element
@@ -96,15 +96,28 @@
 		><ChevronLeft class="mx-auto" /></button
 	>
 	<div
-		class="font-electrolize isolate flex w-36 items-center gap-2 overflow-x-auto rounded-full bg-slate-900/50 bg-radial-[at_50%_70%] from-slate-900/50 from-70% to-slate-600 no-scrollbar"
+		class="font-electrolize relative isolate flex w-36 items-center gap-2 overflow-hidden rounded-full bg-slate-900/50 bg-radial-[at_50%_70%] from-slate-900/50 from-60% to-slate-600/50"
 	>
-		{#each { length: 12 }, index}
-			<span
-				class={index == activeIndex ? 'text-2xl' : 'text-sm'}
-				bind:this={carouselNumberElements[index]}
-				class:text-green-300={index == activeIndex}>0{index}</span
-			>
-		{/each}
+		<!-- Peripheral blur -->
+		<div
+			class="~[mask-size:80px_80px,80px_80px,calc(100%_-_160px)_80px] ~[mask-position:left_center,right_center,center] ~[mask-repeat:no-repeat] absolute h-full
+			w-full
+			~bg-red-400
+    		[mask-image:radial-gradient(ellipse_30px_30px_at_25%_50%,transparent_10%,black_100%),radial-gradient(ellipse_30px_30px_at_75%_50%,transparent_10%,black_100%),radial-gradient(ellipse_50px_50px_at_50%_50%,transparent_10%,black_100%)]
+    		[mask-composite:intersect]
+    		backdrop-blur-xs
+		"
+		></div>
+		<div class="no-scrollbar flex items-center gap-2 overflow-x-auto">
+			{#each { length: 12 }, index}
+				<span
+					class={'transition-all duration-300 ' +
+						(index == activeIndex ? 'text-2xl text-green-300' : 'text-sm text-sky-800')}
+					bind:this={carouselNumberElements[index]}
+					class:text-green-300={index == activeIndex}>0{index}</span
+				>
+			{/each}
+		</div>
 	</div>
 	<button
 		onclick={moveCarouselRight}
