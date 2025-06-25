@@ -43,7 +43,7 @@
 	let activeIndex = $state(0);
 	let carouselNumbersContainer: HTMLDivElement;
 	$effect(() => {
-		carouselNumbersContainer.scrollTo({left: activeIndex * 30, behavior: 'smooth'});
+		carouselNumbersContainer.scrollTo({ left: activeIndex * 30, behavior: 'smooth' });
 	});
 	function getStylesForIndex(index: number) {
 		// Active element
@@ -87,35 +87,42 @@
 <div class="mb-10 flex justify-center gap-2 text-3xl">
 	<button
 		onclick={moveCarouselLeft}
-		class="isolate aspect-square h-14 w-14 cursor-pointer rounded-full bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 text-4xl text-sky-600 backdrop-blur-xs"
+		class="isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 text-4xl text-sky-600 backdrop-blur-xs"
 		><ChevronLeft class="mx-auto" /></button
 	>
 	<div
-		class="font-electrolize relative isolate flex w-36 items-center gap-2 overflow-hidden rounded-full bg-slate-900/50 bg-radial-[at_50%_70%] from-slate-900/50 from-60% to-slate-600/20"
+		class="font-electrolize relative isolate flex w-36 items-center gap-2 overflow-hidden rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_70%] from-slate-900/50 from-60% to-slate-600/20"
 	>
 		<!-- Peripheral blur -->
 		<div
-			class="~[mask-size:80px_80px,80px_80px,calc(100%_-_160px)_80px] ~[mask-position:left_center,right_center,center] ~[mask-repeat:no-repeat] absolute h-full
+			class="~[mask-size:80px_80px,80px_80px,calc(100%_-_160px)_80px] ~[mask-position:left_center,right_center,center] ~[mask-repeat:no-repeat] ~bg-red-400 absolute
+			h-full
 			w-full
-			~bg-red-400
     		[mask-image:radial-gradient(ellipse_30px_30px_at_25%_50%,transparent_10%,black_100%),radial-gradient(ellipse_30px_30px_at_75%_50%,transparent_10%,black_100%),radial-gradient(ellipse_50px_50px_at_50%_50%,transparent_10%,black_100%)]
     		[mask-composite:intersect]
     		backdrop-blur-xs
 		"
 		></div>
-		<div class="no-scrollbar flex items-center gap-2 overflow-x-auto" bind:this={carouselNumbersContainer}>
+		<div
+			class="no-scrollbar flex items-center gap-2 overflow-x-auto"
+			bind:this={carouselNumbersContainer}
+		>
 			{#each { length: projects.length + 4 }, index}
 				<span
 					class={'transition-all duration-300 ' +
-						(index - 2 == activeIndex ? 'text-2xl text-green-300' : 'text-sm text-sky-800')}
-					>0{index < 2 ? projects.length - 1 + index : (index - 2) % projects.length}</span
+						(index - 2 == activeIndex
+							? 'text-2xl text-green-300'
+							: 'text-sm text-sky-800')}
+					>0{index < 2
+						? projects.length - 1 + index
+						: (index - 2) % projects.length}</span
 				>
 			{/each}
 		</div>
 	</div>
 	<button
 		onclick={moveCarouselRight}
-		class="isolate aspect-square h-14 w-14 cursor-pointer rounded-full bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 text-4xl text-sky-600 backdrop-blur-xs"
+		class="isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 text-4xl text-sky-600 backdrop-blur-xs"
 		><ChevronRight class="mx-auto" /></button
 	>
 </div>
