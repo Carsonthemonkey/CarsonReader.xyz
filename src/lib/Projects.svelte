@@ -91,7 +91,7 @@
 		><ChevronLeft class="mx-auto" /></button
 	>
 	<div
-		class="font-electrolize relative isolate flex w-36 items-center gap-2 overflow-hidden rounded-full bg-slate-900/50 bg-radial-[at_50%_70%] from-slate-900/50 from-60% to-slate-600/50"
+		class="font-electrolize relative isolate flex w-36 items-center gap-2 overflow-hidden rounded-full bg-slate-900/50 bg-radial-[at_50%_70%] from-slate-900/50 from-60% to-slate-600/20"
 	>
 		<!-- Peripheral blur -->
 		<div
