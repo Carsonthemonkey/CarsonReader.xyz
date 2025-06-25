@@ -41,7 +41,15 @@
 	];
 
 	let activeIndex = $state(0);
-
+	let carouselNumberElements: Array<HTMLSpanElement | null> = [];
+	$effect(() => {
+		carouselNumberElements[activeIndex]!.scrollIntoView({
+			behavior: 'smooth',
+			inline: 'center',
+			block: 'nearest'
+		});
+		console.log(carouselNumberElements[activeIndex])
+	});
 	function getStylesForIndex(index: number) {
 		// Active element
 		if (index == activeIndex) return `z-20`;
@@ -88,11 +96,12 @@
 		><ChevronLeft class="mx-auto" /></button
 	>
 	<div
-		class="font-electrolize isolate flex w-36 items-center justify-center gap-2 overflow-hidden rounded-full bg-slate-900/50 bg-radial-[at_50%_70%] from-slate-900/50 from-70% to-slate-600 "
+		class="font-electrolize isolate flex w-36 items-center gap-2 overflow-x-auto rounded-full bg-slate-900/50 bg-radial-[at_50%_70%] from-slate-900/50 from-70% to-slate-600 no-scrollbar"
 	>
-		{#each { length: 8 }, index}
+		{#each { length: 12 }, index}
 			<span
 				class={index == activeIndex ? 'text-2xl' : 'text-sm'}
+				bind:this={carouselNumberElements[index]}
 				class:text-green-300={index == activeIndex}>0{index}</span
 			>
 		{/each}
