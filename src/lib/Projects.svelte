@@ -41,14 +41,9 @@
 	];
 
 	let activeIndex = $state(0);
-	let carouselNumberElements: Array<HTMLSpanElement | null> = [];
+	let carouselNumbersContainer: HTMLDivElement;
 	$effect(() => {
-		carouselNumberElements[activeIndex]!.scrollIntoView({
-			behavior: 'smooth',
-			inline: 'center',
-			block: 'nearest'
-		});
-		console.log(carouselNumberElements[activeIndex]);
+		carouselNumbersContainer.scrollTo({left: activeIndex * 30, behavior: 'smooth'});
 	});
 	function getStylesForIndex(index: number) {
 		// Active element
@@ -108,12 +103,11 @@
     		backdrop-blur-xs
 		"
 		></div>
-		<div class="no-scrollbar flex items-center gap-2 overflow-x-auto">
+		<div class="no-scrollbar flex items-center gap-2 overflow-x-auto" bind:this={carouselNumbersContainer}>
 			{#each { length: 12 }, index}
 				<span
 					class={'transition-all duration-300 ' +
 						(index == activeIndex ? 'text-2xl text-green-300' : 'text-sm text-sky-800')}
-					bind:this={carouselNumberElements[index]}
 					class:text-green-300={index == activeIndex}>0{index}</span
 				>
 			{/each}
