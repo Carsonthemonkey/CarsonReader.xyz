@@ -81,15 +81,15 @@
 	{/each}
 </div>
 
-<div class="isolate mb-10 flex justify-center gap-2 text-3xl">
+<div class="mb-10 flex justify-center gap-2 text-3xl">
 	<button
 		onclick={moveCarouselLeft}
-		class="aspect-square h-12 w-12 cursor-pointer rounded-full bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/20 to-slate-600 from-60% text-sky-600 backdrop-blur-xs"
+		class="isolate aspect-square h-12 w-12 cursor-pointer rounded-full bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 to-slate-600 from-60% text-sky-600 backdrop-blur-xs"
 		><ChevronLeft class="mx-auto" /></button
 	>
 	<button
 		onclick={moveCarouselRight}
-		class="aspect-square h-12 w-12 cursor-pointer rounded-full bg-sky-400 text-slate-800"
+		class="isolate aspect-square h-12 w-12 cursor-pointer rounded-full bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 to-slate-600 from-60% text-sky-600 backdrop-blur-xs"
 		><ChevronRight class="mx-auto" /></button
 	>
 </div>
