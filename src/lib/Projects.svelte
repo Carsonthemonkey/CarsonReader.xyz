@@ -2,6 +2,8 @@
 	import ProjectCard from './ProjectCard.svelte';
 	import testImage from '$lib/assets/path_tracer_placeholder.png';
 	import testImage2 from '$lib/assets/DarkSeer Screenshot.png';
+	import ChevronLeft from '~icons/lucide/chevron-left';
+	import ChevronRight from '~icons/lucide/chevron-right';
 
 	// Later on, I will likely have an 'articles' section, so would be nice to fetch this dynamically
 	// TODO: Add images to the projects
@@ -16,25 +18,24 @@
 		{
 			title: 'Test Project',
 			description:
-			'This is a whole paragraph. It has a lot of very very interesting things about this project that I worked on',
+				'This is a whole paragraph. It has a lot of very very interesting things about this project that I worked on',
 			image: testImage
 		},
 		{
 			title: 'Portfolio Website',
 			description:
-			'The website you are on right now! Created with Sveltekit, TailwindCSS, and TypeScript. Has custom GLSL shaders running in WebGL to create the background effects.',
+				'The website you are on right now! Created with Sveltekit, TailwindCSS, and TypeScript. Has custom GLSL shaders running in WebGL to create the background effects.',
 			image: testImage2
 		},
 		{
 			title: 'G.I.S.T',
 			description:
-			'An app for automatically translating, transcribing, and summarizing audio recordings using Whisper and GPT. Written in React with a desktop app via Electron.',
+				'An app for automatically translating, transcribing, and summarizing audio recordings using Whisper and GPT. Written in React with a desktop app via Electron.',
 			image: testImage2
 		},
 		{
 			title: 'QuestScraper',
-			description:
-			'This is a placeholder',
+			description: 'This is a placeholder',
 			image: testImage
 		}
 	];
@@ -67,7 +68,7 @@
 </script>
 
 <h1 class="m-10 text-center text-4xl">Some things I've made</h1>
-<div class="relative flex min-h-[500px] w-full items-center justify-center p-0">
+<div class="relative flex min-h-[600px] w-full items-center justify-center p-0">
 	{#each projects as project, i}
 		<ProjectCard
 			classes={'duration-500 ' + getStylesForIndex(i)}
@@ -80,13 +81,15 @@
 	{/each}
 </div>
 
-<div class="isolate flex justify-center gap-2 text-3xl">
+<div class="isolate mb-10 flex justify-center gap-2 text-3xl">
 	<button
 		onclick={moveCarouselLeft}
-		class="cursor-pointer rounded-full bg-sky-400 p-2 text-slate-800">&#8592</button
+		class="aspect-square h-12 w-12 cursor-pointer rounded-full bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/20 to-slate-600 from-60% text-sky-600 backdrop-blur-xs"
+		><ChevronLeft class="mx-auto" /></button
 	>
 	<button
 		onclick={moveCarouselRight}
-		class="cursor-pointer rounded-full bg-sky-400 p-2 text-slate-800">&#8594</button
+		class="aspect-square h-12 w-12 cursor-pointer rounded-full bg-sky-400 text-slate-800"
+		><ChevronRight class="mx-auto" /></button
 	>
 </div>
