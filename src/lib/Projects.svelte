@@ -104,11 +104,11 @@
 		"
 		></div>
 		<div class="no-scrollbar flex items-center gap-2 overflow-x-auto" bind:this={carouselNumbersContainer}>
-			{#each { length: 12 }, index}
+			{#each { length: projects.length + 4 }, index}
 				<span
 					class={'transition-all duration-300 ' +
-						(index == activeIndex ? 'text-2xl text-green-300' : 'text-sm text-sky-800')}
-					class:text-green-300={index == activeIndex}>0{index}</span
+						(index - 2 == activeIndex ? 'text-2xl text-green-300' : 'text-sm text-sky-800')}
+					class:text-green-300={index == activeIndex}>0{index < 2 ? projects.length - 1 + index : (index - 2) % projects.length}</span
 				>
 			{/each}
 		</div>
