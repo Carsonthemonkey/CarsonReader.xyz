@@ -84,12 +84,22 @@
 <div class="mb-10 flex justify-center gap-2 text-3xl">
 	<button
 		onclick={moveCarouselLeft}
-		class="isolate aspect-square h-12 w-12 cursor-pointer rounded-full bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 to-slate-600 from-60% text-sky-600 backdrop-blur-xs"
+		class="isolate aspect-square h-14 w-14 cursor-pointer rounded-full bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 text-4xl text-sky-600 backdrop-blur-xs"
 		><ChevronLeft class="mx-auto" /></button
 	>
+	<div
+		class="font-electrolize isolate flex w-36 items-center justify-center gap-2 overflow-hidden rounded-full bg-slate-900/50 bg-radial-[at_50%_70%] from-slate-900/50 from-70% to-slate-600 "
+	>
+		{#each { length: 8 }, index}
+			<span
+				class={index == activeIndex ? 'text-2xl' : 'text-sm'}
+				class:text-green-300={index == activeIndex}>0{index}</span
+			>
+		{/each}
+	</div>
 	<button
 		onclick={moveCarouselRight}
-		class="isolate aspect-square h-12 w-12 cursor-pointer rounded-full bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 to-slate-600 from-60% text-sky-600 backdrop-blur-xs"
+		class="isolate aspect-square h-14 w-14 cursor-pointer rounded-full bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 text-4xl text-sky-600 backdrop-blur-xs"
 		><ChevronRight class="mx-auto" /></button
 	>
 </div>
