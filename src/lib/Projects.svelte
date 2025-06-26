@@ -4,6 +4,7 @@
 	import testImage2 from '$lib/assets/DarkSeer Screenshot.png';
 	import ChevronLeft from '~icons/lucide/chevron-left';
 	import ChevronRight from '~icons/lucide/chevron-right';
+	import { onMount } from 'svelte';
 
 	// Later on, I will likely have an 'articles' section, so would be nice to fetch this dynamically
 	// TODO: Add images to the projects
@@ -43,12 +44,14 @@
 	let activeIndex = $state(0);
 	let carouselNumbersContainer: HTMLDivElement;
 
+	// 28 pixels between non scaled numbers
+	const NUMBER_OFFSET = 28;
+	
 	// To play a full animation when clicked
 	let leftClicked = $state(false);
 	let rightClicked = $state(false);
-	
 	$effect(() => {
-		carouselNumbersContainer.scrollTo({ left: activeIndex * 30, behavior: 'smooth' });
+		carouselNumbersContainer.scrollTo({ left: activeIndex * NUMBER_OFFSET, behavior: 'smooth' });
 	});
 	function getStylesForIndex(index: number) {
 		// Active element
@@ -70,12 +73,16 @@
 		leftClicked = true;
 		activeIndex--;
 		if (activeIndex == -1) activeIndex = projects.length - 1;
-		setTimeout(() => {leftClicked = false}, 300);
+		setTimeout(() => {
+			leftClicked = false;
+		}, 300);
 	}
 	function moveCarouselRight() {
 		rightClicked = true;
 		activeIndex = (activeIndex + 1) % projects.length;
-		setTimeout(() => {rightClicked = false}, 300);
+		setTimeout(() => {
+			rightClicked = false;
+		}, 300);
 	}
 </script>
 
@@ -96,7 +103,8 @@
 <div class="mb-10 flex justify-center gap-2 text-3xl">
 	<button
 		onclick={moveCarouselLeft}
-		class={"will-change-transform isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 text-4xl text-sky-600 backdrop-blur-xs transition-all duration-300 " + (leftClicked ? 'scale-110 opacity-80' : 'scale-100')}
+		class={'isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 text-4xl text-sky-600 backdrop-blur-xs transition-all duration-300 will-change-transform ' +
+			(leftClicked ? 'scale-110 opacity-80' : 'scale-100')}
 		><ChevronLeft class="mx-auto" /></button
 	>
 	<div
@@ -113,25 +121,29 @@
 		"
 		></div>
 		<div
-			class="no-scrollbar flex items-center gap-2 overflow-x-auto"
+			class="no-scrollbar flex items-center overflow-x-auto h-full"
 			bind:this={carouselNumbersContainer}
 		>
 			{#each { length: projects.length + 4 }, index}
-				<span
-					class={'transition-all duration-300 ' +
-						(index - 2 == activeIndex
-							? 'text-2xl text-green-300'
-							: 'text-sm text-sky-800')}
-					>0{index < 2
-						? projects.length - 1 + index
-						: (index - 2) % projects.length}</span
-				>
+				<span class="flex min-w-5 h-full bg-red-400/1 mx-1 items-center"
+				class:mx-4={index - 2 == activeIndex}>
+					<span
+						class={'transition-all duration-400 text-sm ' +
+							(index - 2 == activeIndex
+								? 'scale-200 text-green-300'
+								: 'text-sky-800')}
+						>0{index < 2
+							? projects.length - 1 + index
+							: (index - 2) % projects.length}</span
+					>
+				</span>
 			{/each}
 		</div>
 	</div>
 	<button
 		onclick={moveCarouselRight}
-		class={"will-change-transform isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 text-4xl text-sky-600 backdrop-blur-xs transition-all duration-300 " + (rightClicked ? 'scale-110 opacity-80' : 'scale-100')}
+		class={'isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 text-4xl text-sky-600 backdrop-blur-xs transition-all duration-300 will-change-transform ' +
+			(rightClicked ? 'scale-110 opacity-80' : 'scale-100')}
 		><ChevronRight class="mx-auto" /></button
 	>
 </div>
