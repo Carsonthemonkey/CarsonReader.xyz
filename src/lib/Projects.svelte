@@ -114,7 +114,7 @@
 <div class="mb-10 flex justify-center gap-2 text-3xl">
 	<button
 		onclick={moveCarouselLeft}
-		class={'isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 text-4xl text-sky-600 backdrop-blur-xs transition-all duration-300 will-change-transform ' +
+		class={'isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 text-4xl text-sky-600 transition-all duration-300 will-change-transform bg-clip-padding ' +
 			(leftClicked ? 'scale-110 opacity-80' : 'scale-100')}
 		><ChevronLeft class="mx-auto" /></button
 	>
@@ -155,7 +155,7 @@
 	</div>
 	<button
 		onclick={moveCarouselRight}
-		class={'isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 text-4xl text-sky-600 backdrop-blur-xs transition-all duration-300 will-change-transform ' +
+		class={'isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 text-4xl text-sky-600 transition-all duration-300 will-change-transform bg-clip-padding ' +
 			(rightClicked ? 'scale-110 opacity-80' : 'scale-100')}
 		><ChevronRight class="mx-auto" /></button
 	>
