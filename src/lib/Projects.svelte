@@ -46,12 +46,20 @@
 
 	// 28 pixels between non scaled numbers
 	const NUMBER_OFFSET = 28;
+	const INTIAL_OFFSET = 82;
 	
 	// To play a full animation when clicked
 	let leftClicked = $state(false);
 	let rightClicked = $state(false);
+
+	let scrollOffset: number;
+
+	onMount(() => {
+		scrollOffset = INTIAL_OFFSET - carouselNumbersContainer.clientWidth / 2
+		carouselNumbersContainer.scrollBy(scrollOffset, 0)
+	})
 	$effect(() => {
-		carouselNumbersContainer.scrollTo({ left: activeIndex * NUMBER_OFFSET, behavior: 'smooth' });
+		carouselNumbersContainer.scrollTo({ left: activeIndex * NUMBER_OFFSET + scrollOffset, behavior: 'smooth' });
 	});
 	function getStylesForIndex(index: number) {
 		// Active element
@@ -125,7 +133,7 @@
 			bind:this={carouselNumbersContainer}
 		>
 			{#each { length: projects.length + 4 }, index}
-				<span class="flex min-w-5 h-full bg-red-400/1 mx-1 items-center"
+				<span class="flex min-w-5 h-full  mx-1 items-center"
 				class:mx-4={index - 2 == activeIndex}>
 					<span
 						class={'transition-all duration-400 text-sm ' +
