@@ -47,7 +47,7 @@
 	// 28 pixels between non scaled numbers
 	const NUMBER_OFFSET = 28;
 	const INTIAL_OFFSET = 82;
-	
+
 	// To play a full animation when clicked
 	let leftClicked = $state(false);
 	let rightClicked = $state(false);
@@ -55,11 +55,14 @@
 	let scrollOffset: number;
 
 	onMount(() => {
-		scrollOffset = INTIAL_OFFSET - carouselNumbersContainer.clientWidth / 2
-		carouselNumbersContainer.scrollBy(scrollOffset, 0)
-	})
+		scrollOffset = INTIAL_OFFSET - carouselNumbersContainer.clientWidth / 2;
+		carouselNumbersContainer.scrollBy(scrollOffset, 0);
+	});
 	$effect(() => {
-		carouselNumbersContainer.scrollTo({ left: activeIndex * NUMBER_OFFSET + scrollOffset, behavior: 'smooth' });
+		carouselNumbersContainer.scrollTo({
+			left: activeIndex * NUMBER_OFFSET + scrollOffset,
+			behavior: 'smooth'
+		});
 	});
 	function getStylesForIndex(index: number) {
 		// Active element
@@ -129,20 +132,22 @@
 		"
 		></div>
 		<div
-			class="no-scrollbar flex items-center overflow-x-auto h-full"
+			class="no-scrollbar flex h-full items-center overflow-x-auto"
 			bind:this={carouselNumbersContainer}
 		>
 			{#each { length: projects.length + 4 }, index}
-				<span class="flex min-w-5 h-full  mx-1 items-center"
-				class:mx-4={index - 2 == activeIndex}>
+				<span
+					class="mx-1 flex h-full min-w-5 items-center"
+					class:mx-4={index - 2 == activeIndex}
+				>
 					<span
-						class={'transition-all duration-400 text-sm ' +
+						class={'text-sm transition-all duration-400 ' +
 							(index - 2 == activeIndex
 								? 'scale-200 text-green-300'
 								: 'text-sky-800')}
-						>0{index < 2
-							? projects.length - 1 + index
-							: (index - 2) % projects.length}</span
+						>{projects.length > index - 2 && index - 2 >= 0
+							? '0' + (index - 2).toString()
+							: ''}</span
 					>
 				</span>
 			{/each}
