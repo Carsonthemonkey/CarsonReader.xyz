@@ -4,9 +4,7 @@
 	import testImage2 from '$lib/assets/DarkSeer Screenshot.png';
 	import ChevronLeft from '~icons/lucide/chevron-left';
 	import ChevronRight from '~icons/lucide/chevron-right';
-	import { onMount, type Component } from 'svelte';
-	import { ScrollTrigger } from 'gsap/ScrollTrigger';
-	import { prefersReducedMotion } from 'svelte/motion';
+	import { onMount } from 'svelte';
 
 	// Later on, I will likely have an 'articles' section, so would be nice to fetch this dynamically
 	// TODO: Add images to the projects
@@ -45,7 +43,6 @@
 
 	let activeIndex = $state(0);
 	let carouselNumbersContainer: HTMLDivElement;
-	let carouselCards: HTMLDivElement[] = $state([]);
 
 	// 28 pixels between non scaled numbers
 	const NUMBER_OFFSET = 28;
@@ -58,18 +55,8 @@
 	let scrollOffset: number;
 
 	onMount(() => {
-		// Scroll Carousel numbers correctly
 		scrollOffset = INTIAL_OFFSET - carouselNumbersContainer.clientWidth / 2;
 		carouselNumbersContainer.scrollBy(scrollOffset, 0);
-
-		// Animate cards
-		if (prefersReducedMotion) return;
-		// TODO: Remove repeated plugin registering
-		gsap.registerPlugin(ScrollTrigger);
-		// gsap.from(carouselCards[0], {
-		// 	opacity: 0.0,
-		// 	duration: 0.9
-		// })
 	});
 	$effect(() => {
 		carouselNumbersContainer.scrollTo({
@@ -82,16 +69,15 @@
 		if (index == activeIndex) return `z-20`;
 		// Immediately to the left
 		if (index == activeIndex - 1 || (activeIndex == 0 && index == projects.length - 1))
-			return 'absolute sm:-translate-x-80 scale-80 opacity-100 z-10 -translate-x-[93%]';
+			return 'absolute sm:-translate-x-80 scale-80 blur-[4px] opacity-100 z-10 -translate-x-[93%]';
 		// Immediately to the right
 		if (index == (activeIndex + 1) % projects.length)
-			return 'absolute sm:translate-x-80 scale-80 opacity-100 z-10 translate-x-[93%]';
+			return 'absolute sm:translate-x-80 scale-80 blur-[4px] opacity-100 z-10 translate-x-[93%]';
 		// Hidden and to the right
 		if (index == (activeIndex + 2) % projects.length)
-			return 'absolute opacity-0 scale-50 translate-x-50';
-		
+			return 'absolute opacity-0 scale-50 translate-x-50 blur-[4px]';
 		// hidden and to the left
-		return 'absolute opacity-0 scale-50 -translate-x-80';
+		return 'absolute opacity-0 scale-50 -translate-x-80 blur-[4px]';
 	}
 
 	function moveCarouselLeft() {
@@ -112,24 +98,23 @@
 </script>
 
 <h1 class="m-10 text-center text-4xl">Some things I've made</h1>
-<div class="flex min-h-[600px] w-full items-center justify-center p-0">
+<div class="relative flex min-h-[600px] w-full items-center justify-center p-0">
 	{#each projects as project, i}
-		<div class={'isolate duration-500 ' + getStylesForIndex(i)} bind:this={carouselCards[i]}>
-			<ProjectCard
-				title={project.title}
-				image={project.image}
-				imageAlt="testImage"
-				active={i == activeIndex}
-				description={project.description}
-			/>
-		</div>
+		<ProjectCard
+			classes={'duration-500 ' + getStylesForIndex(i)}
+			title={project.title}
+			image={project.image}
+			imageAlt="testImage"
+			active={i == activeIndex}
+			description={project.description}
+		/>
 	{/each}
 </div>
 
 <div class="mb-10 flex justify-center gap-2 text-3xl">
 	<button
 		onclick={moveCarouselLeft}
-		class={'isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 bg-clip-padding text-4xl text-sky-600 transition-all duration-300 will-change-transform ' +
+		class={'isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 text-4xl text-sky-600 transition-all duration-300 will-change-transform bg-clip-padding ' +
 			(leftClicked ? 'scale-110 opacity-80' : 'scale-100')}
 		><ChevronLeft class="mx-auto" /></button
 	>
@@ -170,7 +155,7 @@
 	</div>
 	<button
 		onclick={moveCarouselRight}
-		class={'isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 bg-clip-padding text-4xl text-sky-600 transition-all duration-300 will-change-transform ' +
+		class={'isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 text-4xl text-sky-600 transition-all duration-300 will-change-transform bg-clip-padding ' +
 			(rightClicked ? 'scale-110 opacity-80' : 'scale-100')}
 		><ChevronRight class="mx-auto" /></button
 	>
