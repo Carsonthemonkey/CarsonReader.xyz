@@ -52,12 +52,6 @@
 			{#each iconTags as tag}
 				<IconTag iconClass={tag.class}>{tag.name}</IconTag>
 			{/each}
-			<!-- <IconTag iconClass="devicon-sqlite-plain">SQL</IconTag>
-			<IconTag iconClass="devicon-svelte-plain">Svelte</IconTag>
-			<IconTag iconClass="devicon-python-plain">Python</IconTag>
-			<IconTag iconClass="devicon-fastapi-plain">FastAPI</IconTag>
-			<IconTag iconClass="devicon-tailwindcss-original">Tailwind</IconTag>
-			<IconTag iconClass="devicon-typescript-plain">TypeScript</IconTag> -->
 		</div>
 		<hr class="my-2 border-dotted" />
 		<p class="font-electrolize m-0 pt-0 text-lg">
