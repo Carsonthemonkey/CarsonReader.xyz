@@ -16,29 +16,44 @@
 			title: 'Path Tracer',
 			description:
 				'A multithreaded CPU path tracer written in C, using a simple drawing library on top of X11. Supports importing 3D models, camera controls, depth of field, and more.',
+			tags: [
+				{class: 'devicon-c-plain', name: 'C'}
+			],
 			image: testImage
 		},
 		{
 			title: 'Test Project',
 			description:
 				'This is a whole paragraph. It has a lot of very very interesting things about this project that I worked on',
+			tags: [
+				{class: 'devicon-c-plain', name: 'C'}
+			],
 			image: testImage
 		},
 		{
 			title: 'Portfolio Website',
 			description:
 				'The website you are on right now! Created with Sveltekit, TailwindCSS, and TypeScript. Has custom GLSL shaders running in WebGL to create the background effects.',
+			tags: [
+				{class: 'devicon-c-plain', name: 'C'}
+			],
 			image: testImage2
 		},
 		{
 			title: 'G.I.S.T',
 			description:
 				'An app for automatically translating, transcribing, and summarizing audio recordings using Whisper and GPT. Written in React with a desktop app via Electron.',
+			tags: [
+				{class: 'devicon-c-plain', name: 'C'}
+			],
 			image: testImage2
 		},
 		{
 			title: 'QuestScraper',
 			description: 'This is a placeholder',
+			tags: [
+				{class: 'devicon-c-plain', name: 'C'}
+			],
 			image: testImage
 		}
 	];
@@ -170,6 +185,7 @@
 			imageAlt="testImage"
 			active={i == activeIndex}
 			description={project.description}
+			iconTags={project.tags}
 		/>
 	{/each}
 </div>

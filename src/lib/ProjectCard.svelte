@@ -8,8 +8,9 @@
 		imageAlt: string;
 		classes?: string;
 		active?: boolean;
+		iconTags: {class: string, name: string}[]
 	}
-	let { title, description, image, imageAlt, classes, active = false }: Props = $props();
+	let { title, description, image, imageAlt, classes, iconTags, active = false }: Props = $props();
 	// active = true;
 </script>
 
@@ -48,12 +49,15 @@
 	<div class=" p-3">
 		<h1 class="w-fit text-3xl text-green-300">{title}</h1>
 		<div class="mt-1 flex flex-row text-sky-800">
-			<IconTag iconClass="devicon-sqlite-plain">SQL</IconTag>
+			{#each iconTags as tag}
+				<IconTag iconClass={tag.class}>{tag.name}</IconTag>
+			{/each}
+			<!-- <IconTag iconClass="devicon-sqlite-plain">SQL</IconTag>
 			<IconTag iconClass="devicon-svelte-plain">Svelte</IconTag>
 			<IconTag iconClass="devicon-python-plain">Python</IconTag>
 			<IconTag iconClass="devicon-fastapi-plain">FastAPI</IconTag>
 			<IconTag iconClass="devicon-tailwindcss-original">Tailwind</IconTag>
-			<IconTag iconClass="devicon-typescript-plain">TypeScript</IconTag>
+			<IconTag iconClass="devicon-typescript-plain">TypeScript</IconTag> -->
 		</div>
 		<hr class="my-2 border-dotted" />
 		<p class="font-electrolize m-0 pt-0 text-lg">
