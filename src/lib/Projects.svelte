@@ -44,6 +44,8 @@
 
 	let activeIndex = $state(0);
 	let carouselNumbersContainer: HTMLDivElement;
+	let rightButton: HTMLButtonElement;
+	let leftButton: HTMLButtonElement;
 	let carouselContainer: HTMLDivElement;
 
 	// 28 pixels between non scaled numbers
@@ -51,10 +53,6 @@
 	const INTIAL_OFFSET = 82;
 
 	let scrolledTo = $state(false);
-	// To play a full animation when clicked
-	let leftClicked = $state(false);
-	let rightClicked = $state(false);
-
 	let scrollOffset: number;
 
 	onMount(() => {
@@ -100,19 +98,37 @@
 	}
 
 	function moveCarouselLeft() {
-		leftClicked = true;
 		activeIndex--;
 		if (activeIndex == -1) activeIndex = projects.length - 1;
-		setTimeout(() => {
-			leftClicked = false;
-		}, 300);
+		gsap.killTweensOf(leftButton);
+		gsap.fromTo(
+			leftButton,
+			{ scale: 1.0, opacity: 1.0 },
+			{
+				scale: 1.1,
+				duration: 0.3,
+				opacity: 0.8,
+				yoyo: true,
+				repeat: 1,
+				ease: 'power1.inOut'
+			}
+		);
 	}
 	function moveCarouselRight() {
-		rightClicked = true;
+		gsap.killTweensOf(rightButton);
+		gsap.fromTo(
+			rightButton,
+			{ scale: 1.0, opacity: 1.0 },
+			{
+				scale: 1.1,
+				duration: 0.3,
+				opacity: 0.8,
+				yoyo: true,
+				repeat: 1,
+				ease: 'power1.inOut'
+			}
+		);
 		activeIndex = (activeIndex + 1) % projects.length;
-		setTimeout(() => {
-			rightClicked = false;
-		}, 300);
 	}
 </script>
 
@@ -135,9 +151,9 @@
 
 <div class="mb-10 flex justify-center gap-2 text-3xl">
 	<button
+		bind:this={leftButton}
 		onclick={moveCarouselLeft}
-		class={'isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 bg-clip-padding text-4xl text-sky-600 transition-all duration-300 will-change-transform ' +
-			(leftClicked ? 'scale-110 opacity-80' : 'scale-100')}
+		class="isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 bg-clip-padding text-4xl text-sky-600 will-change-transform"
 		><ChevronLeft class="mx-auto" /></button
 	>
 	<div
@@ -176,9 +192,9 @@
 		</div>
 	</div>
 	<button
+		bind:this={rightButton}
 		onclick={moveCarouselRight}
-		class={'isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 bg-clip-padding text-4xl text-sky-600 transition-all duration-300 will-change-transform ' +
-			(rightClicked ? 'scale-110 opacity-80' : 'scale-100')}
+		class="isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 bg-clip-padding text-4xl text-sky-600 will-change-transform"
 		><ChevronRight class="mx-auto" /></button
 	>
 </div>
