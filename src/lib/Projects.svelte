@@ -148,7 +148,7 @@
 			{ scale: 1.0, opacity: 1.0 },
 			{
 				scale: 1.1,
-				duration: 0.3,
+				duration: 0.2,
 				opacity: 0.8,
 				yoyo: true,
 				repeat: 1,
@@ -163,7 +163,7 @@
 			{ scale: 1.0, opacity: 1.0 },
 			{
 				scale: 1.1,
-				duration: 0.3,
+				duration: 0.2,
 				opacity: 0.8,
 				yoyo: true,
 				repeat: 1,
