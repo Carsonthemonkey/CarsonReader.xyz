@@ -44,6 +44,7 @@
 
 	let activeIndex = $state(0);
 	let carouselNumbersContainer: HTMLDivElement;
+	let carouselNumbersDisplay: HTMLDivElement;
 	let rightButton: HTMLButtonElement;
 	let leftButton: HTMLButtonElement;
 	let carouselContainer: HTMLDivElement;
@@ -67,6 +68,16 @@
 			},
 			start: '30% bottom'
 		});
+		let controlsTimeline = gsap.timeline({ scrollTrigger: carouselNumbersContainer });
+		controlsTimeline
+			.from(carouselNumbersDisplay, {
+				opacity: 1.0,
+				duration: 0.3,
+				width: 55,
+				ease: 'power1.inOut'
+			})
+			.from(leftButton, { scale: 0, duration: 0.3 })
+			.from(rightButton, { scale: 0, delay: 0.1, duration: 0.3 }, '<');
 	});
 	$effect(() => {
 		carouselNumbersContainer.scrollTo({
@@ -157,6 +168,7 @@
 		><ChevronLeft class="mx-auto" /></button
 	>
 	<div
+		bind:this={carouselNumbersDisplay}
 		class="font-electrolize relative isolate flex w-36 items-center gap-2 overflow-hidden rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_70%] from-slate-900/50 from-60% to-slate-600/20"
 	>
 		<!-- Peripheral blur -->
