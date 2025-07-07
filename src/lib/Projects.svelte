@@ -7,6 +7,7 @@
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	import { SplitText } from 'gsap/SplitText';
 	// Later on, I will likely have an 'articles' section, so would be nice to fetch this dynamically
 	// TODO: Add images to the projects
 	// There needs to be at least 5 projects for the animations to display properly.
@@ -43,6 +44,7 @@
 	];
 
 	let activeIndex = $state(0);
+	let header: HTMLElement;
 	let carouselNumbersContainer: HTMLDivElement;
 	let carouselNumbersDisplay: HTMLDivElement;
 	let rightButton: HTMLButtonElement;
@@ -61,6 +63,16 @@
 		carouselNumbersContainer.scrollBy(scrollOffset, 0);
 		// TODO: Register scroll trigger once on the page rather than in each component
 		gsap.registerPlugin(ScrollTrigger);
+		gsap.registerPlugin(SplitText);
+		let headerSplit = SplitText.create(header, { type: 'chars' });
+		//TODO: The header could probably use a more distinct animation from the experience header
+		gsap.from(headerSplit.chars, {
+			duration: 0.3,
+			autoAlpha: 0,
+			x: -10,
+			stagger: 0.02,
+			scrollTrigger: {trigger: header, start: '100% 90%'}
+		})
 		ScrollTrigger.create({
 			trigger: carouselContainer,
 			onEnter: () => {
@@ -143,7 +155,9 @@
 	}
 </script>
 
-<h1 class="m-10 text-center text-6xl text-shadow-sky-600 text-shadow-sm">Projects</h1>
+<h1 bind:this={header} class="m-10 text-center text-6xl text-shadow-sky-600 text-shadow-sm">
+	Projects
+</h1>
 <div
 	bind:this={carouselContainer}
 	class="relative flex min-h-[600px] w-full items-center justify-center p-0"
