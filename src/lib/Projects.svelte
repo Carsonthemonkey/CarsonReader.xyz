@@ -15,44 +15,48 @@
 		{
 			title: 'Path Tracer',
 			description:
-				'A multithreaded CPU path tracer written in C, using a simple drawing library on top of X11. Supports importing 3D models, camera controls, depth of field, and more.',
-			tags: [
-				{class: 'devicon-c-plain', name: 'C'}
-			],
+				'A multithreaded CPU path tracer written in C, using only a simple drawing library on top of X11. Supports importing 3D models, camera controls, depth of field, and more.',
+			tags: [{ class: 'devicon-c-plain', name: 'C' }],
 			image: testImage
 		},
 		{
-			title: 'Test Project',
+			title: 'DarkSeer',
 			description:
-				'This is a whole paragraph. It has a lot of very very interesting things about this project that I worked on',
-			tags: [
-				{class: 'devicon-c-plain', name: 'C'}
-			],
-			image: testImage
+				'An original puzzle game created in 2 weeks for a game jam. Playable in your browser. Written in GDScript and gdshader.',
+			tags: [{ class: 'devicon-godot-plain', name: 'Godot' }],
+			image: testImage2
 		},
 		{
-			title: 'Portfolio Website',
+			title: 'CarsonReader.xyz',
 			description:
 				'The website you are on right now! Created with Sveltekit, TailwindCSS, and TypeScript. Has custom GLSL shaders running in WebGL to create the background effects.',
 			tags: [
-				{class: 'devicon-c-plain', name: 'C'}
+				{ class: 'devicon-svelte-plain', name: 'Svelte' },
+				{ class: 'devicon-opengl-plain', name: 'GLSL' },
+				{ class: 'devicon-tailwindcss-original', name: 'Tailwind' },
+				{ class: 'devicon-typescript-plain', name: 'TypeScript' }
 			],
 			image: testImage2
 		},
 		{
 			title: 'G.I.S.T',
 			description:
-				'An app for automatically translating, transcribing, and summarizing audio recordings using Whisper and GPT. Written in React with a desktop app via Electron.',
+				"An app for automatically translating, transcribing, and summarizing audio recordings using Whisper and GPT. Written in React with a desktop app via Electron. Placed 1st in Lewis & Clark's Spring 2023 Hackathon.",
 			tags: [
-				{class: 'devicon-c-plain', name: 'C'}
+				{ class: 'devicon-react-plain', name: 'React' },
+				{ class: 'devicon-sass-plain', name: 'Sass' },
+				{ class: 'devicon-electron-original', name: 'Electron' },
+				{ class: 'devicon-typescript-plain', name: 'TypeScript' }
 			],
 			image: testImage2
 		},
 		{
 			title: 'QuestScraper',
-			description: 'This is a placeholder',
+			description:
+				'A Python app that scrapes data from reed college websites, providing the Reed newspaper editors with structured crime and event data to print each week. Uses BeautifulSoup, Gooey, and Pyinstaller to provided an intuitive standalone app.',
 			tags: [
-				{class: 'devicon-c-plain', name: 'C'}
+				{ class: 'devicon-python-plain', name: 'Python' },
+				{ class: 'devicon-html5-plain', name: 'HTML' }
 			],
 			image: testImage
 		}
@@ -86,8 +90,8 @@
 			autoAlpha: 0,
 			x: -10,
 			stagger: 0.02,
-			scrollTrigger: {trigger: header, start: '100% 90%'}
-		})
+			scrollTrigger: { trigger: header, start: '100% 90%' }
+		});
 		ScrollTrigger.create({
 			trigger: carouselContainer,
 			onEnter: () => {
