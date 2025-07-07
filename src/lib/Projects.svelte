@@ -143,7 +143,7 @@
 	}
 </script>
 
-<h1 class="m-10 text-center text-4xl">Some things I've made</h1>
+<h1 class="m-10 text-center text-6xl text-shadow-sky-600 text-shadow-sm">Projects</h1>
 <div
 	bind:this={carouselContainer}
 	class="relative flex min-h-[600px] w-full items-center justify-center p-0"
