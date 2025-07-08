@@ -248,7 +248,8 @@
 		"
 		></div>
 		<div
-			class="no-scrollbar flex h-full items-center overflow-x-auto"
+			class="no-scrollbar flex h-full items-center overflow-x-auto pointer-events-none"
+			tabindex="-1"
 			bind:this={carouselNumbersContainer}
 		>
 			{#each { length: projects.length + 4 }, index}
