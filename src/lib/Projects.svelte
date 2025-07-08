@@ -169,12 +169,9 @@
 		return 'absolute opacity-0 scale-50 -translate-x-80 blur-[4px]';
 	}
 
-	function moveCarouselLeft() {
-		activeIndex--;
-		if (activeIndex == -1) activeIndex = projects.length - 1;
-		gsap.killTweensOf(leftButton);
+	function pulseButton(btn: HTMLButtonElement){
 		gsap.fromTo(
-			leftButton,
+			btn,
 			{ scale: 1.0, opacity: 1.0 },
 			{
 				scale: 1.1,
@@ -186,20 +183,13 @@
 			}
 		);
 	}
+	function moveCarouselLeft() {
+		activeIndex--;
+		if (activeIndex == -1) activeIndex = projects.length - 1;
+		gsap.killTweensOf(leftButton);
+	}
 	function moveCarouselRight() {
 		gsap.killTweensOf(rightButton);
-		gsap.fromTo(
-			rightButton,
-			{ scale: 1.0, opacity: 1.0 },
-			{
-				scale: 1.1,
-				duration: 0.2,
-				opacity: 0.8,
-				yoyo: true,
-				repeat: 1,
-				ease: 'power1.inOut'
-			}
-		);
 		activeIndex = (activeIndex + 1) % projects.length;
 	}
 </script>
@@ -227,7 +217,10 @@
 <div class="mb-10 flex justify-center gap-2 text-3xl">
 	<button
 		bind:this={leftButton}
-		onclick={moveCarouselLeft}
+		onclick={() => {
+			moveCarouselLeft();
+			pulseButton(leftButton);
+		}}
 		class="isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 bg-clip-padding text-4xl text-sky-600 will-change-transform"
 		><ChevronLeft class="mx-auto" /></button
 	>
@@ -269,7 +262,10 @@
 	</div>
 	<button
 		bind:this={rightButton}
-		onclick={moveCarouselRight}
+		onclick={() => {
+			moveCarouselRight();
+			pulseButton(rightButton);
+		}}
 		class="isolate aspect-square h-14 w-14 cursor-pointer rounded-full border-2 border-sky-400/20 bg-slate-900/50 bg-radial-[at_50%_59%] from-slate-900/50 from-60% to-slate-600 bg-clip-padding text-4xl text-sky-600 will-change-transform"
 		><ChevronRight class="mx-auto" /></button
 	>
