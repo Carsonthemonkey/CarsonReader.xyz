@@ -153,7 +153,7 @@
 		// Immediately to the left
 		if (index == activeIndex - 1 || (activeIndex == 0 && index == projects.length - 1))
 			return (
-				'absolute blur-[4px] ~opacity-100 z-10 -translate-x-[93%] ' +
+				'absolute blur-[4px] z-10 -translate-x-[93%] ' +
 				(!scrolledTo ? 'opacity-0 sm:-translate-x-30' : 'sm:-translate-x-80 scale-80 ')
 			);
 		// Immediately to the right
@@ -230,7 +230,7 @@
 	>
 		<!-- Peripheral blur -->
 		<div
-			class="~[mask-size:80px_80px,80px_80px,calc(100%_-_160px)_80px] ~[mask-position:left_center,right_center,center] ~[mask-repeat:no-repeat] ~bg-red-400 absolute
+			class="absolute
 			h-full
 			w-full
     		[mask-image:radial-gradient(ellipse_30px_30px_at_25%_50%,transparent_10%,black_100%),radial-gradient(ellipse_30px_30px_at_75%_50%,transparent_10%,black_100%),radial-gradient(ellipse_50px_50px_at_50%_50%,transparent_10%,black_100%)]

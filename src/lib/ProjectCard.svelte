@@ -11,7 +11,6 @@
 		iconTags: {class: string, name: string}[]
 	}
 	let { title, description, image, imageAlt, classes, iconTags, active = false }: Props = $props();
-	// active = true;
 </script>
 
 <div
