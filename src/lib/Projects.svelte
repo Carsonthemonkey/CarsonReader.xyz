@@ -210,6 +210,15 @@
 			active={i == activeIndex}
 			description={project.description}
 			iconTags={project.tags}
+			handleInactiveClick={() => {
+				if(i == (activeIndex + 1) % projects.length){
+					moveCarouselRight();
+				}
+				else {
+					// No other divs should be clickable so we can just make it an else
+					moveCarouselLeft();
+				}
+			}}
 		/>
 	{/each}
 </div>
