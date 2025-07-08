@@ -73,9 +73,34 @@
 	// 28 pixels between non scaled numbers
 	const NUMBER_OFFSET = 28;
 	const INTIAL_OFFSET = 82;
+	const SWIPE_DELTA = 50;
 
 	let scrolledTo = $state(false);
 	let scrollOffset: number;
+
+
+	// Handle carousel swiping on mobile
+	let startX = 0;
+	let startY = 0;
+	
+	function handleSwipeStart(e: TouchEvent){
+		startX = e.touches[0].clientX;
+		e.preventDefault();
+	}
+
+	function handleSwipeEnd(e: TouchEvent){
+		console.log('ended')
+		let endX = e.changedTouches[0].clientX;
+		let diff = endX - startX;
+		if(Math.abs(diff) > SWIPE_DELTA){
+			if(diff > 0){
+				moveCarouselLeft();
+			}
+			else {
+				moveCarouselRight();
+			}
+		}
+	}
 
 	onMount(() => {
 		scrollOffset = INTIAL_OFFSET - carouselNumbersContainer.clientWidth / 2;
@@ -99,6 +124,11 @@
 			},
 			start: '30% bottom'
 		});
+		
+		// Prevent swipe back a page on div
+		carouselContainer.addEventListener("touchstart", handleSwipeStart);
+		carouselContainer.addEventListener("touchend", handleSwipeEnd);
+
 		let controlsTimeline = gsap.timeline({ scrollTrigger: carouselNumbersContainer });
 		controlsTimeline
 			.from(carouselNumbersDisplay, {
