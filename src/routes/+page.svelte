@@ -5,6 +5,7 @@
 	import AboutMe from '$lib/AboutMe.svelte';
 	import Experience from '$lib/Experience.svelte';
 	import Projects from '$lib/Projects.svelte';
+	import LucideChevronsDown from '~icons/lucide/chevrons-down';
 
 	let loaded = false;
 	onMount(() => {
@@ -19,14 +20,14 @@
 		<div
 			class="absolute h-[500px] w-full -translate-y-11 rounded-b-[200px] bg-slate-950 blur-2xl"
 		></div>
-		<header class="min-h-screen">
+		<header class="min-h-screen relative">
 			<div class="relative flex justify-center overflow-x-clip">
 				<!-- Background Glow Gradient -->
 				<div
 					class="absolute m-10 h-full min-w-xl rounded-full bg-[radial-gradient(ellipse_at_center,_rgba(0,188,255,0.2)_0%,_transparent_70%)] blur-3xl"
 				></div>
 				<h1
-					class="max-w-2xl pt-24 text-center text-7xl font-bold text-sky-400 ease-out motion-safe:transition-all motion-safe:duration-[1500ms] md:text-8xl text-shadow-lg text-shadow-sky-600"
+					class="max-w-2xl pt-24 text-center text-7xl font-bold text-sky-400 ease-out text-shadow-lg text-shadow-sky-600 motion-safe:transition-all motion-safe:duration-[1500ms] md:text-8xl"
 					class:blur-[50px]={!loaded}
 					class:opacity-0={!loaded}
 				>
@@ -42,6 +43,11 @@
 				A Passionate Developer working on cool things
 			</h2>
 			<ContactIcons delay={1.5} />
+			<div
+				class="absolute bottom-20 mx-auto mt-20 flex h-13 w-13 items-center justify-center rounded-full bg-sky-400 text-4xl text-slate-950 animate-bounce left-1/2 -translate-x-1/2"
+			>
+				<LucideChevronsDown />
+			</div>
 		</header>
 		<section class="min-h-screen py-32">
 			<AboutMe />
