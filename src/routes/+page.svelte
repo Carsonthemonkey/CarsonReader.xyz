@@ -4,6 +4,7 @@
 	import ContactIcons from '$lib/ContactIcons.svelte';
 	import AboutMe from '$lib/AboutMe.svelte';
 	import Experience from '$lib/Experience.svelte';
+	import Projects from '$lib/Projects.svelte';
 
 	let loaded = false;
 	onMount(() => {
@@ -47,6 +48,9 @@
 		</section>
 		<section class="py-32">
 			<Experience />
+		</section>
+		<section>
+			<Projects />
 		</section>
 	</div>
 </div>
