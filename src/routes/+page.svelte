@@ -57,7 +57,7 @@
 				<LucideChevronsDown />
 			</div>
 		</header>
-		<section class="min-h-screen py-32">
+		<section class="pt-32">
 			<AboutMe />
 		</section>
 		<section class="py-32">
