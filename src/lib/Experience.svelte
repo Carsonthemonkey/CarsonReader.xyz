@@ -63,8 +63,7 @@
 			Lewis & Clark College
 		</h2>
 		<p class="font-electrolize text-lg text-sky-600">
-			This is a placeholder paragraph. It doesn't have anything here yet. We need to make sure
-			that all the things are the same size. That will happen later
+			Created game-ready 3D assets for use in a behavioral study using Unity Engine and Blender. Advised project leads on rendering techniques and animation.
 		</p>
 	</ExperienceCard>
 	<ExperienceCard Icon={LucideApple} iconClasses="text-cyan-300">
