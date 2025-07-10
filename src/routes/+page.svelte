@@ -44,7 +44,7 @@
 				class:translate-y-4={!loaded}
 				class:opacity-0={!loaded}
 			>
-				A Passionate Developer working on cool things
+				Software Developer Working On Cool Things
 			</h2>
 			<div class="pointer-events-auto">
 				<ContactIcons delay={1.5} />
