@@ -74,8 +74,7 @@
 			Algorithms & Data Structures
 		</h2>
 		<p class="font-electrolize text-lg text-sky-600">
-			This is a placeholder paragraph. It doesn't have anything here yet. We need to make sure
-			that all the things are the same size. That will happen later
+			Tested and graded student work for the Algorithm Design and Analysis class. Supported students in office hours by providing intuitive explanations for complex data structures and algorithms.
 		</p>
 	</ExperienceCard>
 </div>
