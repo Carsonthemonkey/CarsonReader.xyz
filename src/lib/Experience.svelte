@@ -41,8 +41,7 @@
 			Lewis & Clark College
 		</h2>
 		<p class="font-electrolize text-lg text-sky-600">
-			This is a placeholder paragraph. It doesn't have anything here yet. We need to make sure
-			that all the things are the same size. That will happen later
+			Two time 1st place winner of the LC Hackathon. Served as president of the LC ACM chapter my Junior and Senior year where I led workshops on topics including Git, circuitry and game development. Graduated with C.S and Mathematics departmental honors award for 2025.
 		</p>
 	</ExperienceCard>
 	<ExperienceCard Icon={IconBrain} iconClasses="text-red-300">
@@ -53,8 +52,7 @@
 			Oregon Health & Science University
 		</h2>
 		<p class="font-electrolize text-lg text-sky-600">
-			This is a placeholder paragraph. It doesn't have anything here yet. We need to make sure
-			that all the things are the same size. That will happen later
+			At OHSU, I designed and implemented an orchestration module for open source brain-computer interface software in Python. Implemented unit tests, and worked with a team via Git and GitHub to ensure a high code quality standard. 
 		</p>
 	</ExperienceCard>
 	<ExperienceCard Icon={LucideMove3d} iconClasses="text-purple-300">
