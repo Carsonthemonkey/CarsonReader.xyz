@@ -1,8 +1,11 @@
 <script lang="ts">
 	import ProjectCard from './ProjectCard.svelte';
+	// Project thumbnails
 	import pathTracerImage from '$lib/assets/path_tracer.png';
 	import darkSeerImage from '$lib/assets/darkseer.png';
 	import questScraper from '$lib/assets/questscraper.png';
+	import portfolio from '$lib/assets/portfolio.png';
+
 	import ChevronLeft from '~icons/lucide/chevron-left';
 	import ChevronRight from '~icons/lucide/chevron-right';
 	import { onMount } from 'svelte';
@@ -37,7 +40,7 @@
 				{ class: 'devicon-tailwindcss-original', name: 'Tailwind' },
 				{ class: 'devicon-typescript-plain', name: 'TypeScript' }
 			],
-			image: darkSeerImage
+			image: portfolio
 		},
 		{
 			title: 'G.I.S.T',
