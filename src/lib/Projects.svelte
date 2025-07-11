@@ -1,7 +1,8 @@
 <script lang="ts">
 	import ProjectCard from './ProjectCard.svelte';
-	import testImage from '$lib/assets/path_tracer_placeholder.png';
-	import testImage2 from '$lib/assets/DarkSeer Screenshot.png';
+	import pathTracerImage from '$lib/assets/path_tracer.png';
+	import darkSeerImage from '$lib/assets/darkseer.png';
+	import questScraper from '$lib/assets/questscraper.png';
 	import ChevronLeft from '~icons/lucide/chevron-left';
 	import ChevronRight from '~icons/lucide/chevron-right';
 	import { onMount } from 'svelte';
@@ -17,14 +18,14 @@
 			description:
 				'A multithreaded CPU path tracer written in C, using only a simple drawing library on top of X11. Supports importing 3D models, camera controls, depth of field, and more.',
 			tags: [{ class: 'devicon-c-plain', name: 'C' }],
-			image: testImage
+			image: pathTracerImage
 		},
 		{
 			title: 'DarkSeer',
 			description:
 				'An original puzzle game created in 2 weeks for a game jam. Playable in your browser. Written in GDScript and gdshader.',
 			tags: [{ class: 'devicon-godot-plain', name: 'Godot' }],
-			image: testImage2
+			image: darkSeerImage
 		},
 		{
 			title: 'CarsonReader.xyz',
@@ -36,7 +37,7 @@
 				{ class: 'devicon-tailwindcss-original', name: 'Tailwind' },
 				{ class: 'devicon-typescript-plain', name: 'TypeScript' }
 			],
-			image: testImage2
+			image: darkSeerImage
 		},
 		{
 			title: 'G.I.S.T',
@@ -48,7 +49,7 @@
 				{ class: 'devicon-electron-original', name: 'Electron' },
 				{ class: 'devicon-typescript-plain', name: 'TypeScript' }
 			],
-			image: testImage2
+			image: darkSeerImage
 		},
 		{
 			title: 'QuestScraper',
@@ -58,7 +59,7 @@
 				{ class: 'devicon-python-plain', name: 'Python' },
 				{ class: 'devicon-html5-plain', name: 'HTML' }
 			],
-			image: testImage
+			image: questScraper
 		}
 	];
 
