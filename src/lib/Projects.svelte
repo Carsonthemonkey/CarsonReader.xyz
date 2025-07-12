@@ -19,6 +19,7 @@
 	const projects = [
 		{
 			title: 'Path Tracer',
+			titleLink: 'https://github.com/Carsonthemonkey/Graphics-Toolkit/tree/path_tracing',
 			description:
 				'A multithreaded CPU path tracer written in C, using only a simple drawing library on top of X11. Supports importing 3D models, camera controls, depth of field, and more.',
 			tags: [{ class: 'devicon-c-plain', name: 'C' }],
