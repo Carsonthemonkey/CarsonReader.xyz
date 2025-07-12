@@ -64,14 +64,17 @@
 		></div>
 	</div>
 	<div class=" p-3">
-		<h1 class="~w-fit align-center flex items-center text-3xl text-green-300">
+		<h1 class="align-center group relative flex w-fit items-center text-3xl text-green-300">
 			{#if titleLink}
-				<a href={titleLink} class="group inline-flex items-center gap-2"
+				<a href={titleLink} class="inline-flex items-center gap-2"
 					>{title}
 					<LucideExternalLink
-						class="text-xl group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:scale-105 transition-all"
+						class="text-xl group-hover:-translate-y-1 motion-safe:transition-all motion-safe:group-hover:translate-x-1 motion-safe:group-hover:scale-105"
 					/></a
 				>
+				<span
+					class="absolute bottom-0 h-[2px] bg-green-300 not-group-hover:w-0 group-hover:w-full motion-safe:transition-all"
+				></span>
 			{:else}
 				{title}
 			{/if}
