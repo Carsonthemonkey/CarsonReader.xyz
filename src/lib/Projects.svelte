@@ -16,20 +16,22 @@
 	// Later on, I will likely have an 'articles' section, so would be nice to fetch this dynamically
 	// TODO: Add images to the projects
 	// There needs to be at least 5 projects for the animations to display properly.
-	let projects = [
+	const projects = [
 		{
 			title: 'Path Tracer',
 			description:
 				'A multithreaded CPU path tracer written in C, using only a simple drawing library on top of X11. Supports importing 3D models, camera controls, depth of field, and more.',
 			tags: [{ class: 'devicon-c-plain', name: 'C' }],
-			image: pathTracerImage
+			image: pathTracerImage,
+			imageAlt: "CGI render of a monkey and reflective sphere sitting in a colorful room."
 		},
 		{
 			title: 'DarkSeer',
 			description:
 				'An original puzzle game created in 2 weeks for a game jam. Playable in your browser. Written in GDScript and gdshader.',
 			tags: [{ class: 'devicon-godot-plain', name: 'Godot' }],
-			image: darkSeerImage
+			image: darkSeerImage,
+			imageAlt: "Screenshot of a video game with a rune floating at the end of a dark hallway."
 		},
 		{
 			title: 'CarsonReader.xyz',
@@ -41,7 +43,8 @@
 				{ class: 'devicon-tailwindcss-original', name: 'Tailwind' },
 				{ class: 'devicon-typescript-plain', name: 'TypeScript' }
 			],
-			image: portfolio
+			image: portfolio,
+			imageAlt: "Screenshot of the top of this webpage, with the text 'Carson Reader' with a subheader that reads 'This is getting kinda meta'"
 		},
 		{
 			title: 'G.I.S.T',
@@ -53,7 +56,8 @@
 				{ class: 'devicon-electron-original', name: 'Electron' },
 				{ class: 'devicon-typescript-plain', name: 'TypeScript' }
 			],
-			image: gist
+			image: gist,
+			imageAlt: "A screenshot of an app with a transcript on the left and summary of the transcript on the right in bullet points. Large text at the top of the image says 'GIST'"
 		},
 		{
 			title: 'QuestScraper',
@@ -63,7 +67,8 @@
 				{ class: 'devicon-python-plain', name: 'Python' },
 				{ class: 'devicon-html5-plain', name: 'HTML' }
 			],
-			image: questScraper
+			image: questScraper,
+			imageAlt: "An image of the QuestScraper UI with a rainbow outline. There are newspapers and JSON files sitting around it."
 		}
 	];
 
@@ -211,7 +216,7 @@
 			classes={'duration-500 ' + getStylesForIndex(i)}
 			title={project.title}
 			image={project.image}
-			imageAlt="testImage"
+			imageAlt={project.imageAlt}
 			active={i == activeIndex}
 			description={project.description}
 			iconTags={project.tags}
