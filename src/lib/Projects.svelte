@@ -5,6 +5,7 @@
 	import darkSeerImage from '$lib/assets/darkseer.png';
 	import questScraper from '$lib/assets/questscraper.png';
 	import portfolio from '$lib/assets/portfolio.png';
+	import gist from '$lib/assets/gist.png'
 
 	import ChevronLeft from '~icons/lucide/chevron-left';
 	import ChevronRight from '~icons/lucide/chevron-right';
@@ -52,7 +53,7 @@
 				{ class: 'devicon-electron-original', name: 'Electron' },
 				{ class: 'devicon-typescript-plain', name: 'TypeScript' }
 			],
-			image: darkSeerImage
+			image: gist
 		},
 		{
 			title: 'QuestScraper',
