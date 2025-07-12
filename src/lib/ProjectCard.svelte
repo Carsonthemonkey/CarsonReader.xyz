@@ -1,6 +1,6 @@
 <script lang="ts">
 	import IconTag from './IconTag.svelte';
-
+	import LucideExternalLink from '~icons/lucide/external-link';
 	interface Props {
 		title: string;
 		description: string;
@@ -10,6 +10,7 @@
 		iconTags: { class: string; name: string }[];
 		handleInactiveClick: () => void;
 		active?: boolean;
+		titleLink?: string;
 	}
 	let {
 		title,
@@ -19,6 +20,7 @@
 		classes,
 		iconTags,
 		handleInactiveClick,
+		titleLink,
 		active = false
 	}: Props = $props();
 </script>
@@ -29,7 +31,7 @@
 	role="presentation"
 >
 	<button
-	 	aria-hidden="true"
+		aria-hidden="true"
 		tabindex="-1"
 		class="absolute inset-0 z-10 h-full w-full"
 		class:hidden={active}
@@ -62,7 +64,21 @@
 		></div>
 	</div>
 	<div class=" p-3">
-		<h1 class="w-fit text-3xl text-green-300">{title}</h1>
+		<h1 class="align-center group relative flex w-fit items-center text-3xl text-green-300">
+			{#if titleLink}
+				<a href={titleLink} class="inline-flex items-center gap-2"
+					>{title}
+					<LucideExternalLink
+						class="text-xl group-hover:-translate-y-1 motion-safe:transition-all motion-safe:group-hover:translate-x-1 motion-safe:group-hover:scale-105"
+					/></a
+				>
+				<span
+					class="absolute bottom-0 h-[2px] bg-green-300 not-group-hover:w-0 group-hover:w-full motion-safe:transition-all"
+				></span>
+			{:else}
+				{title}
+			{/if}
+		</h1>
 		<div class="mt-1 flex flex-row text-sky-800">
 			{#each iconTags as tag}
 				<IconTag iconClass={tag.class}>{tag.name}</IconTag>
