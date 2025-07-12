@@ -220,6 +220,7 @@
 			active={i == activeIndex}
 			description={project.description}
 			iconTags={project.tags}
+			titleLink="https://youtube.com/watch?v=dQw4w9WgXcQ"
 			handleInactiveClick={() => {
 				if(i == (activeIndex + 1) % projects.length){
 					moveCarouselRight();
