@@ -5,7 +5,7 @@
 	import darkSeerImage from '$lib/assets/darkseer.png';
 	import questScraper from '$lib/assets/questscraper.png';
 	import portfolio from '$lib/assets/portfolio.png';
-	import gist from '$lib/assets/gist.png'
+	import gist from '$lib/assets/gist.png';
 
 	import ChevronLeft from '~icons/lucide/chevron-left';
 	import ChevronRight from '~icons/lucide/chevron-right';
@@ -23,18 +23,21 @@
 				'A multithreaded CPU path tracer written in C, using only a simple drawing library on top of X11. Supports importing 3D models, camera controls, depth of field, and more.',
 			tags: [{ class: 'devicon-c-plain', name: 'C' }],
 			image: pathTracerImage,
-			imageAlt: "CGI render of a monkey and reflective sphere sitting in a colorful room."
+			imageAlt: 'CGI render of a monkey and reflective sphere sitting in a colorful room.'
 		},
 		{
 			title: 'DarkSeer',
+			titleLink: 'https://carsonmonkey.itch.io/dark-seer',
 			description:
 				'An original puzzle game created in 2 weeks for a game jam. Playable in your browser. Written in GDScript and gdshader.',
 			tags: [{ class: 'devicon-godot-plain', name: 'Godot' }],
 			image: darkSeerImage,
-			imageAlt: "Screenshot of a video game with a rune floating at the end of a dark hallway."
+			imageAlt:
+				'Screenshot of a video game with a rune floating at the end of a dark hallway.'
 		},
 		{
 			title: 'CarsonReader.xyz',
+			titleLink: 'https://github.com/Carsonthemonkey/portfolio-website',
 			description:
 				'The website you are on right now! Created with Sveltekit, TailwindCSS, and TypeScript. Has custom GLSL shaders running in WebGL to create the background effects.',
 			tags: [
@@ -44,10 +47,12 @@
 				{ class: 'devicon-typescript-plain', name: 'TypeScript' }
 			],
 			image: portfolio,
-			imageAlt: "Screenshot of the top of this webpage, with the text 'Carson Reader' with a subheader that reads 'This is getting kinda meta'"
+			imageAlt:
+				"Screenshot of the top of this webpage, with the text 'Carson Reader' with a subheader that reads 'This is getting kinda meta'"
 		},
 		{
 			title: 'G.I.S.T',
+			titleLink: 'https://github.com/Carsonthemonkey/GIST',
 			description:
 				"An app for automatically translating, transcribing, and summarizing audio recordings using Whisper and GPT. Written in React with a desktop app via Electron. Placed 1st in Lewis & Clark's Spring 2023 Hackathon.",
 			tags: [
@@ -57,10 +62,13 @@
 				{ class: 'devicon-typescript-plain', name: 'TypeScript' }
 			],
 			image: gist,
-			imageAlt: "A screenshot of an app with a transcript on the left and summary of the transcript on the right in bullet points. Large text at the top of the image says 'GIST'"
+			imageAlt:
+				"A screenshot of an app with a transcript on the left and summary of the transcript on the right in bullet points. Large text at the top of the image says 'GIST'"
 		},
 		{
 			title: 'QuestScraper',
+			titleLink:
+				'https://github.com/Carsonthemonkey/QuestScraper',
 			description:
 				'A Python app that scrapes data from reed college websites, providing the Reed newspaper editors with structured crime and event data to print each week. Uses BeautifulSoup, Gooey, and Pyinstaller to provided an intuitive standalone app.',
 			tags: [
@@ -68,7 +76,8 @@
 				{ class: 'devicon-html5-plain', name: 'HTML' }
 			],
 			image: questScraper,
-			imageAlt: "An image of the QuestScraper UI with a rainbow outline. There are newspapers and JSON files sitting around it."
+			imageAlt:
+				'An image of the QuestScraper UI with a rainbow outline. There are newspapers and JSON files sitting around it.'
 		}
 	];
 
@@ -88,25 +97,23 @@
 	let scrolledTo = $state(false);
 	let scrollOffset: number;
 
-
 	// Handle carousel swiping on mobile
 	let startX = 0;
 	let startY = 0;
-	
-	function handleSwipeStart(e: TouchEvent){
+
+	function handleSwipeStart(e: TouchEvent) {
 		startX = e.touches[0].clientX;
 		e.preventDefault();
 	}
 
-	function handleSwipeEnd(e: TouchEvent){
-		console.log('ended')
+	function handleSwipeEnd(e: TouchEvent) {
+		console.log('ended');
 		let endX = e.changedTouches[0].clientX;
 		let diff = endX - startX;
-		if(Math.abs(diff) > SWIPE_DELTA){
-			if(diff > 0){
+		if (Math.abs(diff) > SWIPE_DELTA) {
+			if (diff > 0) {
 				moveCarouselLeft();
-			}
-			else {
+			} else {
 				moveCarouselRight();
 			}
 		}
@@ -134,10 +141,10 @@
 			},
 			start: '30% bottom'
 		});
-		
+
 		// Prevent swipe back a page on div
-		carouselContainer.addEventListener("touchstart", handleSwipeStart);
-		carouselContainer.addEventListener("touchend", handleSwipeEnd);
+		carouselContainer.addEventListener('touchstart', handleSwipeStart);
+		carouselContainer.addEventListener('touchend', handleSwipeEnd);
 
 		let controlsTimeline = gsap.timeline({ scrollTrigger: carouselNumbersContainer });
 		controlsTimeline
@@ -179,7 +186,7 @@
 		return 'absolute opacity-0 scale-50 -translate-x-80 blur-[4px]';
 	}
 
-	function pulseButton(btn: HTMLButtonElement){
+	function pulseButton(btn: HTMLButtonElement) {
 		gsap.fromTo(
 			btn,
 			{ scale: 1.0, opacity: 1.0 },
@@ -215,17 +222,16 @@
 		<ProjectCard
 			classes={'duration-500 ' + getStylesForIndex(i)}
 			title={project.title}
+			titleLink={project.titleLink}
 			image={project.image}
 			imageAlt={project.imageAlt}
 			active={i == activeIndex}
 			description={project.description}
 			iconTags={project.tags}
-			titleLink="https://youtube.com/watch?v=dQw4w9WgXcQ"
 			handleInactiveClick={() => {
-				if(i == (activeIndex + 1) % projects.length){
+				if (i == (activeIndex + 1) % projects.length) {
 					moveCarouselRight();
-				}
-				else {
+				} else {
 					// No other divs should be clickable so we can just make it an else
 					moveCarouselLeft();
 				}
@@ -259,7 +265,7 @@
 		"
 		></div>
 		<div
-			class="no-scrollbar flex h-full items-center overflow-x-auto pointer-events-none"
+			class="no-scrollbar pointer-events-none flex h-full items-center overflow-x-auto"
 			tabindex="-1"
 			bind:this={carouselNumbersContainer}
 		>
