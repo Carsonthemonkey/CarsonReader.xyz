@@ -1,15 +1,24 @@
 import sharp from 'sharp';
-import fs from 'fs/promises';
+import fs from 'fs';
 import path from 'path';
 
 const inputDir = path.resolve('static/project_thumbnails');
-const files = await fs.readdir(inputDir);
+const outputDir = path.resolve('static/project_thumbnails/glow');
+
+if (!fs.existsSync(outputDir)) {
+	fs.mkdirSync(outputDir);
+}
+
+const files = fs
+	.readdirSync(inputDir, { withFileTypes: true })
+	.filter((dirent) => dirent.isFile())
+	.map((dirent) => dirent.name);
 
 for (const file of files) {
 	const extension = path.extname(file);
 	const base = path.basename(file, extension);
 	const input = path.join(inputDir, file);
-	const output = path.join(inputDir, `${base}_glow${extension}`);
+	const output = path.join(outputDir, `${base}_glow${extension}`);
 
 	await sharp(input)
 		.ensureAlpha()
