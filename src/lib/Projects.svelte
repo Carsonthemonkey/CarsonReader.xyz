@@ -104,7 +104,6 @@
 
 	function handleSwipeStart(e: TouchEvent) {
 		startX = e.touches[0].clientX;
-		e.preventDefault();
 	}
 
 	function handleSwipeEnd(e: TouchEvent) {
