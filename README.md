@@ -1,3 +1,3 @@
-# [carsonreader.xyz](https://carsonreader.xyz)
+# [CarsonReader.xyz](https://carsonreader.xyz)
 
 My portfolio website. Built with SvelteKit, GLSL and Tailwind.
