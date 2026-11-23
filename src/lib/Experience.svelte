@@ -43,14 +43,6 @@
     As one of the first engineers at a VC intelligence startup, I architected the data pipeline behind a platform covering ~13k startups and ~5k venture firms. I built agentic extraction pipelines for fund sites and SEC filings, using LLMs where they made sense and swapping in deterministic or local models elsewhere to cut cost and improve reliability.
     </ExperienceCard>
 	<ExperienceCard
-		Icon={IconGraduationCap}
-		iconClasses="text-orange-300"
-		title="B.A. in Computer Science"
-		subtitle="Lewis & Clark College"
-	>
-		Two time 1st place winner of the LC Hackathon. Served as president of the LC ACM chapter my Junior and Senior year where I led workshops on topics including Git, circuitry and game development. Graduated with C.S and Mathematics departmental honors award for 2025.
-	</ExperienceCard>
-	<ExperienceCard
 		Icon={IconBrain}
 		iconClasses="text-red-300"
 		title="BCI Programmer"
@@ -58,6 +50,14 @@
 	>
 		At OHSU, I designed and implemented an orchestration module for open source brain-computer interface software in Python. Implemented unit tests, and worked with a team via Git and GitHub to ensure a high code quality standard.
 	</ExperienceCard>
+    <ExperienceCard
+        Icon={IconGraduationCap}
+        iconClasses="text-orange-300"
+        title="B.A. in Computer Science"
+        subtitle="Lewis & Clark College"
+    >
+        Two time 1st place winner of the LC Hackathon. Served as president of the LC ACM chapter my Junior and Senior year where I led workshops on topics including Git, circuitry and game development. Graduated with C.S and Mathematics departmental honors award for 2025.
+    </ExperienceCard>
 	<ExperienceCard
 		Icon={IconMove3d}
 		iconClasses="text-purple-300"
