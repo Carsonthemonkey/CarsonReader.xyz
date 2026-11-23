@@ -16,32 +16,31 @@
 	let { Icon, title, subtitle, children, iconClasses }: Props = $props();
 
 	onMount(() => {
-		if(prefersReducedMotion.current) return;
+		if (prefersReducedMotion.current) return;
 		gsap.registerPlugin(ScrollTrigger);
 		gsap.from(card, {
 			y: 50,
 			opacity: 0.0,
-			duration: .3,
-			scrollTrigger: { trigger: card, start: '55% 100%'}
+			duration: 0.3,
+			scrollTrigger: { trigger: card, start: '55% 100%' }
 		});
-	})
-
+	});
 </script>
 
 <section bind:this={card} class="flex flex-row content-center justify-center">
 	<div
-		class="isolate max-w-4xl overflow-clip rounded-3xl border-3 border-sky-800/50 ~bg-slate-900/50 backdrop-blur-sm mx-6 min-w-0 hover:scale-103 transition-all hover:bg-radial-[at_50%_0%] from-slate-900/60 from-0%"
+		class="~bg-slate-900/50 isolate mx-6 max-w-4xl min-w-0 overflow-clip rounded-3xl border-3 border-sky-800/50 from-slate-900/60 from-0% backdrop-blur-sm transition-all hover:scale-103 hover:bg-radial-[at_50%_0%]"
 	>
 		<div
 			class="absolute -z-10 h-full w-full rounded-3xl border-3 border-sky-800/50 blur-md"
 		></div>
 		<div class="flex flex-col sm:flex-row">
-			<div class="flex items-center px-7 py-5 text-3xl justify-center sm:pr-0">
-				<div class={"bg-orange rounded-full bg-slate-900 p-5 " + iconClasses}>
+			<div class="flex items-center justify-center px-7 py-5 text-3xl sm:pr-0">
+				<div class={'bg-orange rounded-full bg-slate-900 p-5 ' + iconClasses}>
 					<Icon />
 				</div>
 			</div>
-			<div class="m-7 mt-0 sm:mt-7 text-center sm:text-left">
+			<div class="m-7 mt-0 text-center sm:mt-7 sm:text-left">
 				<h3 class="mb-2 text-3xl">{title}</h3>
 				<p
 					class="mx-auto mb-2 max-w-fit truncate rounded-full border-1 bg-green-300/10 px-2 text-green-300 sm:mx-0"

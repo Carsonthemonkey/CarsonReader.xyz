@@ -68,8 +68,7 @@
 		},
 		{
 			title: 'QuestScraper',
-			titleLink:
-				'https://github.com/Carsonthemonkey/QuestScraper',
+			titleLink: 'https://github.com/Carsonthemonkey/QuestScraper',
 			description:
 				'A Python app that scrapes data from reed college websites, providing the Reed newspaper editors with structured crime and event data to print each week. Uses BeautifulSoup, Gooey, and Pyinstaller to provided an intuitive standalone app.',
 			tags: [
