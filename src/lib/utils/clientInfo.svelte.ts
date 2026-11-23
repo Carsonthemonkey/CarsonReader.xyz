@@ -1,11 +1,11 @@
-import { onMount } from "svelte";
-import { browser } from "$app/environment";
+import { onMount } from 'svelte';
+import { browser } from '$app/environment';
 const clientInfo = $state({
-    isTouchscreen: false,
+	isTouchscreen: false
 });
 
-if(browser){
-    clientInfo.isTouchscreen = window.matchMedia('(pointer: coarse)').matches;
+if (browser) {
+	clientInfo.isTouchscreen = window.matchMedia('(pointer: coarse)').matches;
 }
 
 export default clientInfo;
