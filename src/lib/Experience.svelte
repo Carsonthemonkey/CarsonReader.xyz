@@ -4,6 +4,7 @@
 	import IconBrain from '~icons/lucide/brain';
 	import IconMove3d from '~icons/lucide/move-3d';
 	import IconApple from '~icons/lucide/apple';
+	import IconLightbulb from '~icons/lucide/lightbulb';
 	import gsap from 'gsap';
 	import { SplitText } from 'gsap/SplitText';
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -33,6 +34,14 @@
 </h2>
 
 <div class="flex flex-col gap-16">
+	<ExperienceCard
+		Icon={IconLightbulb}
+		iconClasses="text-teal-300"
+		title="Software Engineer, Data Platform"
+		subtitle="IQ500"
+	>
+    As one of the first engineers at a VC intelligence startup, I architected the data pipeline behind a platform covering ~13k startups and ~5k venture firms. I built agentic extraction pipelines for fund sites and SEC filings, using LLMs where they made sense and swapping in deterministic or local models elsewhere to cut cost and improve reliability.
+    </ExperienceCard>
 	<ExperienceCard
 		Icon={IconGraduationCap}
 		iconClasses="text-orange-300"
