@@ -101,11 +101,11 @@
 				</h2>
 				<hr />
 				<p class="font-electrolize text-lg text-sky-300 sm:text-2xl">
-					I'm Carson, a Software Engineer based in the Bay Area with a passion for
-					creating efficient, thoughtful, and memorable software. I focus on solving real
-					world problems with scalable, creative solutions. In my free time I enjoy
-					creating 3D art in Blender and programming video games in Godot. If you you'd
-					like to chat, please <a
+					I'm Carson, a Bay Area Software Engineer who cares about the details: software
+					that's fast, well-designed, and delightful to use. I like digging into
+					real-world problems and finding solutions that are both creative and built to
+					scale. In my free time I enjoy creating 3D art in Blender and programming video
+					games in Godot. If you'd like to chat, please <a
 						href="mailto:carson.a.reader@gmail.com"
 						class="text-green-300 underline">reach out</a
 					>.
